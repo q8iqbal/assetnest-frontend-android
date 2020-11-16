@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="32dp"
+    android:paddingTop="24dp"
+    android:paddingEnd="32dp"
+    android:background="@color/major">
+
+    <ImageView
+        android:id="@+id/iv_scanner"
+        android:layout_width="224dp"
+        android:layout_height="224dp"
+        android:contentDescription="@string/scanner_description"
+        android:src="@drawable/black_square"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_scanner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:text="@string/scanner_text"
+        android:textColor="@color/accent"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_scanner" />
+
+    <TextView
+        android:id="@+id/tv_asset_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/asset_id_text"
+        android:textColor="@color/accent"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_asset_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_scanner" />
+
+    <EditText
+        android:id="@+id/et_asset_id"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="6dp"
+        android:autofillHints=""
+        android:background="@drawable/editable_edittext"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/asset_id_text"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="16sp"
+        android:textColor="@color/accent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_asset_id"
+        tools:targetApi="O" />
+
+    <TextView
+        android:id="@+id/tv_asset_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/asset_name_text"
+        android:textColor="@color/accent"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_asset_id" />
+
+    <EditText
+        android:id="@+id/et_asset_name"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="6dp"
+        android:autofillHints=""
+        android:background="@drawable/readonly_edittext"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/asset_name_text"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:longClickable="false"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="@color/disabledText"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_asset_name"
+        tools:targetApi="O" />
+
+    <TextView
+        android:id="@+id/tv_current_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/current_status_text"
+        android:textSize="16sp"
+        android:textColor="@color/accent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_asset_name"
+        app:layout_constraintEnd_toStartOf="@+id/tv_action" />
+
+    <EditText
+        android:id="@+id/et_current_status"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:background="@drawable/readonly_edittext"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/current_status_text"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:longClickable="false"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="@color/disabledText"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_action"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current_status"
+        tools:targetApi="O" />
+
+    <TextView
+        android:id="@+id/tv_action"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/action_text"
+        android:textSize="16sp"
+        android:textColor="@color/accent"
+        app:layout_constraintStart_toEndOf="@+id/tv_current_status"
+        app:layout_constraintTop_toBottomOf="@+id/et_asset_name"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_action"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/custom_spinner"
+        android:entries="@array/action_list"
+        android:spinnerMode="dialog"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:theme="@style/SpinnerTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/et_current_status"
+        app:layout_constraintTop_toBottomOf="@id/tv_action" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
