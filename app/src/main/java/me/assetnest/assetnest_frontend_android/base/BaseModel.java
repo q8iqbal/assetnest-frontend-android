@@ -1,4 +1,4 @@
-package pens.lab.app.belajaractivity.base;
+package me.assetnest.assetnest_frontend_android.base;
 
 public class BaseModel  {
     private String statusMsg;

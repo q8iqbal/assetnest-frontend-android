@@ -1,11 +1,12 @@
-package pens.lab.app.belajaractivity.base;
+package me.assetnest.assetnest_frontend_android.base;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import pens.lab.app.belajaractivity.R;
+
+import me.assetnest.assetnest_frontend_android.R;
 
 
 public abstract  class BaseActivity extends FragmentActivity implements FragmentListener{

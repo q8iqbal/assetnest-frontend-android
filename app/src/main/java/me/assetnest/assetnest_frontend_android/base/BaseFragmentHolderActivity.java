@@ -1,4 +1,4 @@
-package pens.lab.app.belajaractivity.base;
+package me.assetnest.assetnest_frontend_android.base;
 
 import android.view.View;
 import android.widget.FrameLayout;
@@ -7,8 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import pens.lab.app.belajaractivity.R;
-
+import me.assetnest.assetnest_frontend_android.R;
 
 public abstract class BaseFragmentHolderActivity extends BaseActivity {
 
