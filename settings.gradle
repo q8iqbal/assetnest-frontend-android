@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "assetnest-frontend-android"
