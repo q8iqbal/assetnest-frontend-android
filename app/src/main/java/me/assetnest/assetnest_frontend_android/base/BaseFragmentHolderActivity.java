@@ -24,10 +24,10 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
         setContentView(R.layout.base_activity);
         tvToolbarTitle = (TextView) findViewById(R.id.tvToolbarTitle);
         flFragmentContainer = (FrameLayout) findViewById(R.id.flFragmentContainer);
-        btOptionMenu = (ImageButton) findViewById(R.id.btOptionMenu);
-        ivIcon = (ImageView) findViewById(R.id.ivIcon);
-        btBack = (ImageButton) findViewById(R.id.btBack);
-        vMenuBarShadow = findViewById(R.id.vMenuBarShadow);
+//        btOptionMenu = (ImageButton) findViewById(R.id.btOptionMenu);
+//        ivIcon = (ImageView) findViewById(R.id.ivIcon);
+//        btBack = (ImageButton) findViewById(R.id.btBack);
+//        vMenuBarShadow = findViewById(R.id.vMenuBarShadow);
         rlActivityFragmentHolder = (RelativeLayout) findViewById(R.id.rlActivityFragmentHolder);
 
         btBack.setOnClickListener(new View.OnClickListener() {

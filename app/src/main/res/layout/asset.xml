@@ -10,7 +10,6 @@
         android:id="@+id/imageView"
         android:layout_width="124dp"
         android:layout_height="83dp"
-        android:background="@drawable/rounded_corner"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp"
@@ -47,7 +46,7 @@
         android:paddingHorizontal="20dp"
         android:paddingVertical="3dp"
         android:text="idle"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorMayor"
         tools:layout_editor_absoluteX="332dp"
         tools:layout_editor_absoluteY="19dp"
         tools:ignore="MissingConstraints" />

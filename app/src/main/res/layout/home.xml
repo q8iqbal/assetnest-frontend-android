@@ -22,7 +22,7 @@
         android:inputType="textPersonName"
         android:paddingHorizontal="20dp"
         android:text="Search Fixed Asset"
-        android:textColor="#818181"
+        android:textColor="@color/colorGrey"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-1dp"
         tools:layout_editor_absoluteY="16dp" />
