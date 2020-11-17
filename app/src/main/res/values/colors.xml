@@ -3,6 +3,7 @@
     <color name="colorPrimary">#ff7b4b</color>
     <color name="colorPrimaryDark">#3700B3</color>
 <<<<<<< master
+<<<<<<< master
     <color name="colorAccent">#3e4243</color>
 =======
     <color name="colorAccent">#03DAC5</color>
@@ -11,4 +12,13 @@
     <color name="merah">#F85E5E</color>
     <color name="abu">#808080</color>
 >>>>>>> Membuat layout profile dan edit profile
+=======
+    <color name="colorAccent">#3e4243</color>
+    <color name="colorMajor">#f9f9f9</color>
+    <color name="colorMaintenance">#ffbb56</color>
+    <color name="colorIdle">#78f184</color>
+    <color name="colorUsed">#66bcfa</color>
+    <color name="colorLost">#818181</color>
+    <color name="colorBroken">#f85e5e</color>
+>>>>>>> Merivisi layout, ganti font dll
 </resources>
