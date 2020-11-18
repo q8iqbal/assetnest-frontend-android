@@ -6,7 +6,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AssetnestTheme" parent="Theme.AppCompat.Light">
+    <style name="AssetnestTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--theme color -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
@@ -14,6 +14,12 @@
 
         <!--theme font -->
         <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="AssetnestTheme.splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
 
 </resources>

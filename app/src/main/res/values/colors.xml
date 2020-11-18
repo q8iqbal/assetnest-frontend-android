@@ -2,7 +2,6 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
 
 
     <!--Assetnest App-->
@@ -14,6 +13,8 @@
     <color name="secondaryDarkColor">#181b1c</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#ffffff</color>
+
+    <!--assetnest app 2-->
     <color name="colorMayor">#ffffff</color>
     <color name="colorMinor">#ff7b4b</color>
     <color name="colorAccent">#3e4243</color>
