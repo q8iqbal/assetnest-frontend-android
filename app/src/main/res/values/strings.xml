@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">assetnest-frontend-android</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="email_placeholder">your@email.com</string>
+
     <string name="asset_id_text">Asset ID</string>
     <string name="asset_name_text">Asset Name</string>
     <string name="current_status_text">Current Status</string>
@@ -13,4 +18,5 @@
         <item>Lost</item>
         <item>Broken</item>
     </string-array>
+
 </resources>
