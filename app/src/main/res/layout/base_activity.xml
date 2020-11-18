@@ -15,6 +15,11 @@
         android:layout_above="@id/bottomNavbar"
         android:layout_marginTop="-5dp" >
 
+        <Button
+            android:id="@+id/buttonTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test API" />
     </FrameLayout>
 
     <include
