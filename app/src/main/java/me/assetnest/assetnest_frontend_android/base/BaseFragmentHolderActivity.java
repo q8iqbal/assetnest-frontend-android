@@ -6,7 +6,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import me.assetnest.assetnest_frontend_android.R;
 
 public abstract class BaseFragmentHolderActivity extends BaseActivity {
@@ -22,12 +21,12 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
     @Override
     protected void initializeView() {
         setContentView(R.layout.base_activity);
-        tvToolbarTitle = (TextView) findViewById(R.id.tvToolbarTitle);
+        //tvToolbarTitle = (TextView) findViewById(R.id.tvToolbarTitle);
         flFragmentContainer = (FrameLayout) findViewById(R.id.flFragmentContainer);
-        btOptionMenu = (ImageButton) findViewById(R.id.btOptionMenu);
-        ivIcon = (ImageView) findViewById(R.id.ivIcon);
-        btBack = (ImageButton) findViewById(R.id.btBack);
-        vMenuBarShadow = findViewById(R.id.vMenuBarShadow);
+        //btOptionMenu = (ImageButton) findViewById(R.id.btOptionMenu);
+        //ivIcon = (ImageView) findViewById(R.id.ivIcon);
+        //btBack = (ImageButton) findViewById(R.id.btBack);
+        //vMenuBarShadow = findViewById(R.id.vMenuBarShadow);
         rlActivityFragmentHolder = (RelativeLayout) findViewById(R.id.rlActivityFragmentHolder);
 
         btBack.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +40,4 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
     public void setTitle(String title) {
         this.tvToolbarTitle.setText(title);
     }
-
-
 }

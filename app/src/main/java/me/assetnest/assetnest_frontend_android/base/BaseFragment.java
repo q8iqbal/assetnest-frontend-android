@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-
 import me.assetnest.assetnest_frontend_android.R;
-
 
 public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment {
 
@@ -30,7 +28,6 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         return title;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,13 +38,10 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         return view;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.activity = (T) context;
         this.fragmentListener = (FragmentListener) context;
     }
-
-
 }
