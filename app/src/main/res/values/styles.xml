@@ -1,10 +1,32 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorMinor</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="AssetnestTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--theme color -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+
+        <!--theme font -->
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="AssetnestTheme.splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="SpinnerTheme">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>
