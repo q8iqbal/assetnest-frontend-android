@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".modul.Profile.ProfileActivity">
 
     <ImageView
         android:id="@+id/iv_profile"
@@ -103,7 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_email" />
 
     <Button
-        android:id="@+id/Edit"
+        android:id="@+id/sign_out"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
