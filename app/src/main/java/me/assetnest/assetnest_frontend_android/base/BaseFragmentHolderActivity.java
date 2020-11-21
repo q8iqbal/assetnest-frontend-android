@@ -13,10 +13,6 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
 
     protected TextView tvToolbarTitle;
     protected FrameLayout flFragmentContainer;
-    protected ImageButton btOptionMenu;
-    protected ImageView ivIcon;
-    protected ImageButton btBack;
-    protected View vMenuBarShadow;
     protected RelativeLayout rlActivityFragmentHolder;
 
     @Override
@@ -24,23 +20,10 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
         setContentView(R.layout.base_activity);
         tvToolbarTitle = (TextView) findViewById(R.id.tvToolbarTitle);
         flFragmentContainer = (FrameLayout) findViewById(R.id.flFragmentContainer);
-//        btOptionMenu = (ImageButton) findViewById(R.id.btOptionMenu);
-//        ivIcon = (ImageView) findViewById(R.id.ivIcon);
-//        btBack = (ImageButton) findViewById(R.id.btBack);
-//        vMenuBarShadow = findViewById(R.id.vMenuBarShadow);
         rlActivityFragmentHolder = (RelativeLayout) findViewById(R.id.rlActivityFragmentHolder);
-
-        btBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 
     public void setTitle(String title) {
         this.tvToolbarTitle.setText(title);
     }
-
-
 }

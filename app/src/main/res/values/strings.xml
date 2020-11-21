@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">assetnest-frontend-android</string>
+    <string name="home">Home</string>
+    <string name="scan">Scan</string>
+    <string name="history">History</string>
+    <string name="user">Profile</string>
+    <string name="login">Sign in</string>
+    <string name="logout">Sign out</string>
+    <string name="save">Save</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>\
+
 </resources>
