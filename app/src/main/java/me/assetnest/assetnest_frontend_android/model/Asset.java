@@ -13,9 +13,9 @@ public class Asset {
     private String location;
     private String note;
     private String type;
-    private Date purchaseDate;
+    private String purchaseDate;
 
-    public Asset(int id, int companyId, int price, String code, String name, String status, String image, String location, String note, String type, Date purchaseDate) {
+    public Asset(int id, int companyId, int price, String code, String name, String status, String image, String location, String note, String type, String purchaseDate) {
         this.id = id;
         this.companyId = companyId;
         this.price = price;
@@ -69,7 +69,7 @@ public class Asset {
         return type;
     }
 
-    public Date getPurchaseDate() {
+    public String getPurchaseDate() {
         return purchaseDate;
     }
 }
