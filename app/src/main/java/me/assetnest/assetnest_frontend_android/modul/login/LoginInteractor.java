@@ -28,7 +28,7 @@ public class LoginInteractor implements LoginContract.Interactor {
     public void requestLogin(String email, String password,final RequestCallback<LoginResponse> requestCallback) {
         JSONObject userObj = createUserJson(email, password);
 
-        AndroidNetworking.post(Constant.BASE_URL+"login")
+        AndroidNetworking.post(Constant.BASE_URL+"login/mobile")
                 .addJSONObjectBody(userObj)
                 .build()
                 .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {

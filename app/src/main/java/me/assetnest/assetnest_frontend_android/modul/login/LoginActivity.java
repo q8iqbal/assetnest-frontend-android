@@ -7,6 +7,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 import me.assetnest.assetnest_frontend_android.MainActivity;
 import me.assetnest.assetnest_frontend_android.databinding.ActivityLoginBinding;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
@@ -47,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void loginSuccess() {
-        finish();
+       this.finish();
         startActivity(new Intent(this, MainActivity.class));
     }
 
@@ -64,7 +66,18 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     private void onButtonLoginClick(){
-        presenter.login(binding.etEmail.getText().toString(), binding.etPassword.getText().toString());
+        String email = Objects.requireNonNull(binding.etEmail.getText()).toString();
+        String password = Objects.requireNonNull(binding.etPassword.getText()).toString();
+
+        if(email.isEmpty()){
+            binding.etEmail.setError("this cannot be empty");
+        }
+        else if(password.isEmpty()){
+            binding.etPassword.setError("this cannot be empty");
+        }
+        else {
+            presenter.login(email, password);
+        }
     }
 
     @Override

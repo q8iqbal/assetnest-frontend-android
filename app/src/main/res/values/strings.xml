@@ -11,6 +11,9 @@
     <string name="scanner_text">Scan QR Code From the Asset</string>
     <string name="scanner_description">QR Scanner</string>
     <string name="action_text">Action</string>
+    <string name="app_logo">App Logo</string>
+    <string name="password_placeholder">*******</string>
+    <string name="button_login">Sign In</string>
     <string-array name="action_list">
         <item>Used</item>
         <item>Maintenance</item>
