@@ -7,7 +7,8 @@
     </style>
 
 
-    <style name="AssetnestTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--theme -->
+    <style name="Theme.Assetnest" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--theme color -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
@@ -15,18 +16,42 @@
 
         <!--theme font -->
         <item name="android:fontFamily">@font/roboto</item>
+
+        <!--widget style-->
+        <item name="textInputStyle">@style/Widget.Assetnest.TextInputLayout.OutlinedBox</item>
+        <item name="buttonStyle">@style/Widget.Assetnest.Button</item>
     </style>
 
-    <style name="AssetnestTheme.splash" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Assetnest.Splash" parent="Theme.Assetnest">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDisablePreview">true</item>
     </style>
+    <!--end of theme-->
+
+    <!--view style-->
+
+    <!--text input style-->
+    <style name="Widget.Assetnest.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+    </style>
+
+    <!--button style-->
+    <style name="Widget.Assetnest.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:radius">10dp</item>
+    </style>
+
 
     <style name="SpinnerTheme">
         <item name="android:textColor">@color/colorAccent</item>
         <item name="fontFamily">@font/roboto</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+
+    <!--end of view style-->
 
 </resources>
