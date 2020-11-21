@@ -2,11 +2,28 @@
 <resources>
     <color name="colorPrimary">#ff7b4b</color>
     <color name="colorPrimaryDark">#3700B3</color>
+
+
+    <!--Assetnest App-->
+    <color name="primaryColor">#ff7b4b</color>
+    <color name="primaryLightColor">#ffac78</color>
+    <color name="primaryDarkColor">#c64b1f</color>
+    <color name="secondaryColor">#3e4243</color>
+    <color name="secondaryLightColor">#696d6e</color>
+    <color name="secondaryDarkColor">#181b1c</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+    <!--assetnest app 2-->
+    <color name="colorMayor">#ffffff</color>
+    <color name="colorMinor">#ff7b4b</color>
     <color name="colorAccent">#3e4243</color>
-    <color name="colorMajor">#f9f9f9</color>
-    <color name="colorMaintenance">#ffbb56</color>
-    <color name="colorIdle">#78f184</color>
-    <color name="colorUsed">#66bcfa</color>
-    <color name="colorLost">#818181</color>
-    <color name="colorBroken">#f85e5e</color>
+    <color name="colorLightGrey">#f9f9f9</color>
+    <color name="colorGrey">#818181</color>
+    <color name="colorRed">#f85e5e</color>
+    <color name="colorYellow">#ffbb56</color>
+    <color name="colorBlue">#66bcfa</color>
+    <color name="colorGreen">#78f184</color>
+
+    <color name="colorDarkerLightGrey">#bcbcbc</color>
 </resources>
