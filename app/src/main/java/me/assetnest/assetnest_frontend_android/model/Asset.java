@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Asset {
     private int id;
-    private int companyId;
+    private int company_id;
     private int price;
     private String code;
     private String name;
@@ -13,11 +13,11 @@ public class Asset {
     private String location;
     private String note;
     private String type;
-    private Date purchaseDate;
+    private String purchase_date;
 
-    public Asset(int id, int companyId, int price, String code, String name, String status, String image, String location, String note, String type, Date purchaseDate) {
+    public Asset(int id, int company_id, int price, String code, String name, String status, String image, String location, String note, String type, String purchase_date) {
         this.id = id;
-        this.companyId = companyId;
+        this.company_id = company_id;
         this.price = price;
         this.code = code;
         this.name = name;
@@ -26,15 +26,15 @@ public class Asset {
         this.location = location;
         this.note = note;
         this.type = type;
-        this.purchaseDate = purchaseDate;
+        this.purchase_date = purchase_date;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getCompanyId() {
-        return companyId;
+    public int getCompany_id() {
+        return company_id;
     }
 
     public int getPrice() {
@@ -69,8 +69,8 @@ public class Asset {
         return type;
     }
 
-    public Date getPurchaseDate() {
-        return purchaseDate;
+    public String getPurchase_date() {
+        return purchase_date;
     }
 }
 

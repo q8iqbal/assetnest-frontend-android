@@ -8,7 +8,11 @@
     android:paddingStart="32dp"
     android:paddingTop="24dp"
     android:paddingEnd="32dp"
-    android:background="@color/colorLightGrey">
+    android:background="@color/colorLightGrey"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:id="@+id/cl_fragment_scan_asset">
 
     <ImageView
         android:id="@+id/iv_scanner"
@@ -35,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_scanner" />
 
     <TextView
-        android:id="@+id/tv_asset_id"
+        android:id="@+id/tv_asset_code"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -43,13 +47,13 @@
         android:text="@string/asset_id_text"
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_asset_id"
+        app:layout_constraintBottom_toTopOf="@+id/et_asset_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_scanner" />
 
     <EditText
-        android:id="@+id/et_asset_id"
+        android:id="@+id/et_asset_code"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginTop="6dp"
@@ -66,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_asset_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_asset_code"
         tools:targetApi="O" />
 
     <TextView
@@ -80,7 +84,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_asset_id" />
+        app:layout_constraintTop_toBottomOf="@+id/et_asset_code" />
 
     <EditText
         android:id="@+id/et_asset_name"
@@ -174,5 +178,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/et_current_status"
         app:layout_constraintTop_toBottomOf="@id/tv_action" />
+
+    <ProgressBar
+        android:id="@+id/pb_fragment_scan_asset"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/primaryColor"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

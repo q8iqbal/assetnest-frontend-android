@@ -14,15 +14,22 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".modul.splash.SplashActivity" android:theme="@style/AssetnestTheme.splash">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity android:name=".modul.login.LoginActivity" android:theme="@style/AssetnestTheme" />
+        <activity android:name=".MainActivity" android:theme="@style/AssetnestTheme" />
+        <activity android:name=".modul.scanasset.ScanAssetActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".modul.login.LoginActivity" android:theme="@style/AssetnestTheme" />
-        <activity android:name=".MainActivity" android:theme="@style/AssetnestTheme" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
