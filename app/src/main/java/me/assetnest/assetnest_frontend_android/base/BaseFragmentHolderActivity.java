@@ -29,12 +29,12 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
 //        btBack = (ImageButton) findViewById(R.id.btBack);
 //        vMenuBarShadow = findViewById(R.id.vMenuBarShadow);
         rlActivityFragmentHolder = (RelativeLayout) findViewById(R.id.rlActivityFragmentHolder);
-        btBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        btBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
     }
 
     public void setTitle(String title) {

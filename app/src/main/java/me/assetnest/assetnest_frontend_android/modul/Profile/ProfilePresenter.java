@@ -1,6 +1,6 @@
 package me.assetnest.assetnest_frontend_android.modul.Profile;
 
-import me.assetnest.assetnest_frontend_android.modul.add_task.AddTaskFragment;
+import me.assetnest.assetnest_frontend_android.modul.Profile.ProfileFragment;
 
 public class ProfilePresenter implements ProfileContract.Presenter{
     private final ProfileContract.View view;

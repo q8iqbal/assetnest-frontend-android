@@ -48,6 +48,4 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         this.activity = (T) context;
         this.fragmentListener = (FragmentListener) context;
     }
-
-
 }

@@ -6,7 +6,7 @@ import me.assetnest.assetnest_frontend_android.base.BaseFragmentHolderActivity;
 import me.assetnest.assetnest_frontend_android.modul.Profile.ProfileFragment;
 
 public class ProfileActivity extends BaseFragmentHolderActivity {
-    me.assetnest.assetnest_frontend_android.modul.Profile.ProfileActivity profileFragment;
+    me.assetnest.assetnest_frontend_android.modul.Profile.ProfileFragment profileFragment;
     private final int UPDATE_REQUEST = 2019;
 
     @Override
