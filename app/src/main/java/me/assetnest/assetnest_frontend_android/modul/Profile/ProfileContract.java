@@ -10,5 +10,6 @@ public interface ProfileContract {
 
     interface Presenter extends BasePresenter {
         void performEditTask();
+        void requestData(String token, String id);
     }
 }

@@ -30,7 +30,6 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         return title;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,6 +47,4 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         this.activity = (T) context;
         this.fragmentListener = (FragmentListener) context;
     }
-
-
 }

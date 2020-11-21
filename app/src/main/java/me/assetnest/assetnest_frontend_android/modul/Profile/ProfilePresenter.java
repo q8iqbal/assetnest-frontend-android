@@ -1,6 +1,13 @@
 package me.assetnest.assetnest_frontend_android.modul.Profile;
 
-import me.assetnest.assetnest_frontend_android.modul.add_task.AddTaskFragment;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
+import org.json.JSONObject;
+
+import me.assetnest.assetnest_frontend_android.modul.Profile.ProfileFragment;
+import me.assetnest.assetnest_frontend_android.utils.Constant;
 
 public class ProfilePresenter implements ProfileContract.Presenter{
     private final ProfileContract.View view;
@@ -15,5 +22,14 @@ public class ProfilePresenter implements ProfileContract.Presenter{
     @Override
     public void performEditTask(){
         view.redirectToSuccesEdit();
+    }
+
+    @Override
+    public void requestData(String token, String id) {
+        AndroidNetworking.get(Constant.BASE_URL + "users/{userId}")
+                .addPathParameter("userId", id)
+                .addHeaders("Authorization", "Bearer " + token)
+                .build()
+                .getAsObject();
     }
 }

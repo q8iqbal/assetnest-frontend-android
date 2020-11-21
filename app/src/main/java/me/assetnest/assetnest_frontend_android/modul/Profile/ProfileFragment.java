@@ -31,13 +31,13 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
         mPresenter = new me.assetnest.assetnest_frontend_android.modul.Profile.ProfilePresenter(this);
         mPresenter.start();
 
-        btnSignOut = fragmentView.findViewById(R.id.sign_out);
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setBtLoginClick();
-            }
-        });
+//        btnSignOut = fragmentView.findViewById(R.id.);
+//        btnSignOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setBtLoginClick();
+//            }
+//        });
 
         setTitle("PROFILE");
         return fragmentView;
