@@ -29,53 +29,100 @@ public class ScanAssetInteractor implements ScanAssetContract.Interactor {
         return sharedPreferenceUtil.getToken();
     }
 
-    @Override
-    public void getAsset(final String assetCode, final RequestCallback<Asset> requestCallback) {
-        AndroidNetworking.get(Constant.BASE_URL + "assets/?filter[code]={code}")
-            .addPathParameter("code", assetCode)
-            .addHeaders("Authorization", sharedPreferenceUtil.getToken())
-            .setTag("test")
-            .setPriority(Priority.MEDIUM)
-            .build()
-            .getAsJSONObject(new JSONObjectRequestListener() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        JSONArray assets = response.getJSONObject("data")
-                                                   .getJSONArray("data");
-                        JSONObject assetJson = (assets.length() > 0)
-                                ? assets.getJSONObject(0)
-                                : null;
-                        Asset asset = (assetJson != null)
-                                ? new Gson().fromJson(assetJson.toString(), Asset.class)
-                                : null;
+    private void requestGetAsset(String url, String pathParameter, String pathParameterValue,
+                                 JSONObjectRequestListener jsonObjectrequestListener) {
+        AndroidNetworking.get(url)
+                .addPathParameter(pathParameter, pathParameterValue)
+                .addHeaders("Authorization", sharedPreferenceUtil.getToken())
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(jsonObjectrequestListener);
+    }
 
-                        Log.d("Assetnest-Android",
-                                "response: " + response.toString(4));
-                        Log.d("Assetnest-Android",
-                                "JSONArray assets: " + assets.toString(4));
-                        if (assetJson != null) {
-                            Log.d("Assetnest-Android",
-                                    "JSONObject asset: " + assetJson.toString(4));
-                        }
-                        if (asset == null) {
-                            String errorMessage = "Asset with code \"" + assetCode + "\" not found";
-                            requestCallback.requestFailed(errorMessage);
-                        } else {
-                            requestCallback.requestSuccess(asset);
-                        }
-                    } catch (JSONException e) {
-                        requestCallback.requestFailed("Error: JSONException error.");
-                        e.printStackTrace();
-                        Log.e("Assetnest-Android", "response error: ", e);
+    @Override
+    public void requestGetAssetByCode(final String assetCode,
+                                      final RequestCallback<Asset> requestCallback) {
+        String url = Constant.BASE_URL + "assets/?filter[code]={code}";
+        JSONObjectRequestListener jsonObjectrequestListener = new JSONObjectRequestListener() {
+            private final String logTag = "Assetnest-Android";
+
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray assets = response.getJSONObject("data").getJSONArray("data");
+                    JSONObject assetJson = (assets.length() > 0)
+                            ? assets.getJSONObject(0) : null;
+                    Asset asset = (assetJson != null)
+                            ? new Gson().fromJson(assetJson.toString(), Asset.class) : null;
+                    int indentSpaces = 4;
+
+                    Log.d(logTag, "response: " + response.toString(indentSpaces));
+                    Log.d(logTag, "JSONArray assets: " + assets.toString(indentSpaces));
+                    if (assetJson != null) {
+                        Log.d(logTag, "JSONObject asset: " + assetJson.toString(indentSpaces));
                     }
+                    if (asset == null) {
+                        String errorMessage = "Asset with code \"" + assetCode + "\" not found";
+                        requestCallback.requestFailed(errorMessage);
+                    } else {
+                        requestCallback.requestSuccess(asset);
+                    }
+                } catch (JSONException e) {
+                    requestCallback.requestFailed(e.getMessage());
+                    e.printStackTrace();
+                    Log.e(logTag, "JSONException error: ", e);
                 }
-                @Override
-                public void onError(ANError error) {
-                    requestCallback.requestFailed("Error: ANError error.");
-                    Log.e("Assetnest-Android", "ANError error: ", error);
+            }
+
+            @Override
+            public void onError(ANError anError) {
+                requestCallback.requestFailed(anError.getMessage());
+                Log.e(logTag, "ANError error: ", anError);
+            }
+        };
+
+        requestGetAsset(url, "code", assetCode, jsonObjectrequestListener);
+    }
+
+    @Override
+    public void requestGetAssetById(final int assetId,
+                                    final RequestCallback<Asset> requestCallback) {
+        String url = Constant.BASE_URL + "assets/{id}";
+        String assetIdString = Integer.toString(assetId);
+        JSONObjectRequestListener jsonObjectRequestListener = new JSONObjectRequestListener() {
+            private final String logTag = "Assetnest-Android";
+
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONObject assetJson = response.getJSONObject("data");
+                    Asset asset = new Gson().fromJson(assetJson.toString(), Asset.class);
+                    int indentSpaces = 4;
+
+                    Log.d(logTag, "response: " + response.toString(indentSpaces));
+                    Log.d(logTag, "JSONObject asset: " + assetJson.toString(indentSpaces));
+                    if (asset == null) {
+                        String errorMessage = "Asset with id \"" + assetId + "\" not found";
+                        requestCallback.requestFailed(errorMessage);
+                    } else {
+                        requestCallback.requestSuccess(asset);
+                    }
+                } catch (JSONException e) {
+                    requestCallback.requestFailed(e.getMessage());
+                    e.printStackTrace();
+                    Log.e(logTag, "JSONException error: ", e);
                 }
-            });
+            }
+
+            @Override
+            public void onError(ANError anError) {
+                requestCallback.requestFailed(anError.getMessage());
+                Log.e(logTag, "ANError error: ", anError);
+            }
+        };
+
+        requestGetAsset(url, "id", assetIdString, jsonObjectRequestListener);
     }
 
     @Override
@@ -89,27 +136,30 @@ public class ScanAssetInteractor implements ScanAssetContract.Interactor {
             .setPriority(Priority.MEDIUM)
             .build()
             .getAsJSONObject(new JSONObjectRequestListener() {
+                private final String logTag = "Assetnest-Android";
+
                 @Override
                 public void onResponse(JSONObject response) {
+                    requestGetAssetById(assetId, requestCallback);
                     try {
-                        JSONObject assetJson = response.getJSONObject("data");
-                        Asset asset = new Gson().fromJson(assetJson.toString(), Asset.class);
+//                        requestGetAssetById(assetId, requestCallback);
+//                        JSONObject assetJson = response.getJSONObject("data");
+//                        Asset asset = new Gson().fromJson(assetJson.toString(), Asset.class);
+                        final int indentSpaces = 4;
 
-                        requestCallback.requestSuccess(asset);
-                        Log.d("Assetnest-Android",
-                                "response: " + response.toString(4));
-                        Log.d("Assetnest-Android",
-                                "JSONObject asset: " + assetJson.toString(4));
+//                        requestCallback.requestSuccess(asset);
+                        Log.d(logTag, "response: " + response.toString(indentSpaces));
+//                        Log.d(logTag, "JSONObject asset: " + assetJson.toString(indentSpaces));
                     } catch (JSONException e) {
-                        requestCallback.requestFailed("Error: JSONException error.");
+//                        requestCallback.requestFailed(e.getMessage());
                         e.printStackTrace();
-                        Log.e("Assetnest-Android", "response error: ", e);
+                        Log.e(logTag, "JSONException error: ", e);
                     }
                 }
                 @Override
-                public void onError(ANError error) {
-                    requestCallback.requestFailed("Error: ANError error.");
-                    Log.e("Assetnest-Android", "ANError error: ", error);
+                public void onError(ANError anError) {
+                    requestCallback.requestFailed(anError.getMessage());
+                    Log.e(logTag, "ANError error: ", anError);
                 }
             });
     }
@@ -124,10 +174,5 @@ public class ScanAssetInteractor implements ScanAssetContract.Interactor {
         }
 
         return putAssetJSONObject;
-    }
-
-    @Override
-    public void logout() {
-
     }
 }

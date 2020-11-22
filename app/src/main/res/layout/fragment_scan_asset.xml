@@ -9,15 +9,13 @@
     android:paddingTop="24dp"
     android:paddingEnd="32dp"
     android:background="@color/colorLightGrey"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
     android:clickable="true"
     android:id="@+id/cl_fragment_scan_asset">
 
     <ImageView
         android:id="@+id/iv_scanner"
-        android:layout_width="224dp"
-        android:layout_height="224dp"
+        android:layout_width="216dp"
+        android:layout_height="216dp"
         android:contentDescription="@string/scanner_description"
         android:src="@drawable/black_square"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +40,7 @@
         android:id="@+id/tv_asset_code"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/asset_id_text"
         android:textColor="@color/colorAccent"
@@ -67,6 +65,8 @@
         android:paddingEnd="12dp"
         android:textSize="16sp"
         android:textColor="@color/colorAccent"
+        android:imeOptions="actionDone"
+        android:imeActionId="6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +77,7 @@
         android:id="@+id/tv_asset_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/asset_name_text"
         android:textColor="@color/colorAccent"
@@ -96,6 +96,7 @@
         android:clickable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:cursorVisible="false"
         android:fontFamily="@font/roboto"
         android:hint="@string/asset_name_text"
         android:importantForAutofill="no"
@@ -115,15 +116,15 @@
         android:id="@+id/tv_current_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/current_status_text"
-        android:textSize="16sp"
         android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_action"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_asset_name"
-        app:layout_constraintEnd_toStartOf="@+id/tv_action" />
+        app:layout_constraintTop_toBottomOf="@+id/et_asset_name" />
 
     <EditText
         android:id="@+id/et_current_status"
@@ -134,6 +135,7 @@
         android:autofillHints=""
         android:background="@drawable/readonly_edittext"
         android:clickable="false"
+        android:cursorVisible="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:hint="@string/current_status_text"
@@ -154,14 +156,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/action_text"
-        android:textSize="16sp"
         android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_current_status"
-        app:layout_constraintTop_toBottomOf="@+id/et_asset_name"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/et_asset_name" />
 
     <Spinner
         android:id="@+id/spinner_action"
@@ -181,7 +183,7 @@
 
     <ProgressBar
         android:id="@+id/pb_fragment_scan_asset"
-        style="?android:attr/progressBarStyle"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/primaryColor"
