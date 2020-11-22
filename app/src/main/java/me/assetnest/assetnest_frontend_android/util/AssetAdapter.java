@@ -28,7 +28,7 @@ public class AssetAdapter extends ArrayAdapter<Asset> {
         // Lookup view for data population
         TextView tvAssetCode = (TextView) convertView.findViewById(R.id.tvAssetCode);
         TextView tvAssetName = (TextView) convertView.findViewById(R.id.tvAssetName);
-        TextView tvAssectStatus = (TextView) convertView.findViewById(R.id.tvAssetStatus);
+        TextView tvAssectStatus = (TextView) convertView.findViewById(R.id.tv_history_status);
         // Populate the data into the template view using the data object
         tvAssetCode.setText("#"+assets.getCode());
         tvAssetName.setText(assets.getName());
