@@ -68,6 +68,13 @@ public class ScanAssetFragment
             }
         });
 
+        clFragmentScanAsset.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                hideKeyboard(v);
+            }
+        });
+
         clFragmentScanAsset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
