@@ -23,7 +23,7 @@ import java.util.List;
 
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.model.Asset;
-import me.assetnest.assetnest_frontend_android.util.AssetAdapter;
+import me.assetnest.assetnest_frontend_android.utils.AssetAdapter;
 
 public class API extends AppCompatActivity {
 

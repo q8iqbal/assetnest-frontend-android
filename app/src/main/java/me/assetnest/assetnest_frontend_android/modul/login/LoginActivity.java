@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-import me.assetnest.assetnest_frontend_android.MainActivity;
 import me.assetnest.assetnest_frontend_android.databinding.ActivityLoginBinding;
+import me.assetnest.assetnest_frontend_android.modul.asset.AssetActivity;
+import me.assetnest.assetnest_frontend_android.modul.home.HomeActivity;
+import me.assetnest.assetnest_frontend_android.modul.profile.ProfileActivity;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View, View.OnClickListener {
@@ -50,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void loginSuccess() {
        this.finish();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 
     @Override

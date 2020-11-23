@@ -1,4 +1,4 @@
-package me.assetnest.assetnest_frontend_android.util;
+package me.assetnest.assetnest_frontend_android.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;

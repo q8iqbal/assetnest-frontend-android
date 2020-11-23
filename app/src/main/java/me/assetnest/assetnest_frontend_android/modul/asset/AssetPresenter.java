@@ -1,21 +1,34 @@
 package me.assetnest.assetnest_frontend_android.modul.asset;
 
-/**
- * Created by fahrul on 13/03/19.
- */
+import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
+import me.assetnest.assetnest_frontend_android.model.Asset;
 
 public class AssetPresenter implements AssetContract.Presenter{
     private final AssetContract.View view;
-
-    public AssetPresenter(AssetContract.View view) {
+    private final AssetContract.Interactor interactor;
+    public AssetPresenter(AssetContract.View view, AssetContract.Interactor interactor) {
         this.view = view;
+        this.interactor = interactor;
     }
 
     @Override
     public void start() {}
 
     @Override
-    public void performFormTask(int type, int pos, int id) {
-        view.redirectToFormTask(type, pos, id);
+    public void requestAsset() {
+        view.startLoading();
+        interactor.requestAsset(new RequestCallback<Asset>() {
+            @Override
+            public void requestSuccess(Asset data) {
+                view.endLoading();
+                view.showAsset(data);
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.endLoading();
+                view.showError(errorMessage);
+            }
+        });
     }
 }

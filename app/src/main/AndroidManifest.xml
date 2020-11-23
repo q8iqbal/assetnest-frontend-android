@@ -22,7 +22,9 @@
         </activity>
 
         <activity android:name=".modul.login.LoginActivity" android:theme="@style/Theme.Assetnest" />
-        <activity android:name=".MainActivity" android:theme="@style/Theme.Assetnest" />
+        <activity android:name=".modul.home.HomeActivity" android:theme="@style/Theme.Assetnest" />
+        <activity android:name=".modul.profile.ProfileActivity" android:theme="@style/Theme.Assetnest" />
+        <activity android:name=".modul.asset.AssetActivity" android:theme="@style/Theme.Assetnest" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

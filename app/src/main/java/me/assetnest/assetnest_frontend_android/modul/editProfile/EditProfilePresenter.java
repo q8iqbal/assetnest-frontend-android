@@ -1,4 +1,4 @@
-package me.assetnest.assetnest_frontend_android.modul.EditProfile;
+package me.assetnest.assetnest_frontend_android.modul.editProfile;
 
 public class EditProfilePresenter implements EditProfileContract.Presenter{
     private final EditProfileContract.View view;

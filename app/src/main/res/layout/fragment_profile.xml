@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modul.Profile.ProfileActivity">
+    tools:context=".modul.profile.ProfileActivity">
 
     <ImageView
         android:id="@+id/iv_profile"

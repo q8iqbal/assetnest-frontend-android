@@ -1,11 +1,9 @@
-package me.assetnest.assetnest_frontend_android.modul.EditProfile;
-
-import android.view.View;
+package me.assetnest.assetnest_frontend_android.modul.editProfile;
 
 import me.assetnest.assetnest_frontend_android.base.BaseFragmentHolderActivity;
 
 public class EditProfileActivity extends BaseFragmentHolderActivity {
-    me.assetnest.assetnest_frontend_android.modul.EditProfile.EditProfileFragment editProfileFragment;
+    me.assetnest.assetnest_frontend_android.modul.editProfile.EditProfileFragment editProfileFragment;
     private final int UPDATE_REQUEST = 2019;
 
     @Override

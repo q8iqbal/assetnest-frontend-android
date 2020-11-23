@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
 
@@ -25,10 +24,8 @@ import java.util.List;
 
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
-import me.assetnest.assetnest_frontend_android.model.Asset;
 import me.assetnest.assetnest_frontend_android.model.History;
-import me.assetnest.assetnest_frontend_android.util.AssetAdapter;
-import me.assetnest.assetnest_frontend_android.util.HistoryAdapter;
+import me.assetnest.assetnest_frontend_android.utils.HistoryAdapter;
 
 
 public class HistoryFragment extends BaseFragment<HistoryActivity, HistoryContract.Presenter> implements HistoryContract.View {

@@ -10,7 +10,6 @@ public class HomeActivity extends BaseFragmentHolderActivity {
     protected void initializeFragment() {
         initializeView();
         homeFragment = new HomeFragment();
-        setTitle("Home");
         setCurrentFragment(homeFragment, false);
     }
 }
