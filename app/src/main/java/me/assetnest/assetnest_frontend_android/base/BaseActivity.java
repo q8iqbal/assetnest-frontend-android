@@ -2,6 +2,7 @@ package me.assetnest.assetnest_frontend_android.base;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -9,7 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import me.assetnest.assetnest_frontend_android.R;
 
 
-public abstract  class BaseActivity extends FragmentActivity implements FragmentListener{
+public abstract  class BaseActivity extends AppCompatActivity implements FragmentListener{
 
 
     protected BaseFragment currentFragment;
