@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".modul.history.HistoryActivity">
+        <activity android:name=".modul.asset.AssetActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

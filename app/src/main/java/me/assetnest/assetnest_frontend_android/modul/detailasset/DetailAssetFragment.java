@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.model.Asset;
-import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
+//import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 public class DetailAssetFragment
         extends BaseFragment<DetailAssetActivity, DetailAssetContract.Presenter>
@@ -31,7 +31,7 @@ public class DetailAssetFragment
 
 
     private void initViews(){
-        pbDetailAsset = fragmentView.findViewById(R.id.pbDetailAsset);
+//        pbDetailAsset = fragmentView.findViewById(R.id.pbDetailAsset);
         tvAssetIdValue =  fragmentView.findViewById(R.id.tv_asset_id_value);
         tvNameValue =  fragmentView.findViewById(R.id.tv_name_value);
         tvTypeValue =  fragmentView.findViewById(R.id.tv_type_value);
@@ -49,13 +49,13 @@ public class DetailAssetFragment
         super.onCreateView(inflater, container, savedInstanceState);
         String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkuYXNzZXRuZXN0Lm1lXC9sb2dpbiIsImlhdCI6MTYwNTk1NzY4MSwiZXhwIjoxNjA1OTYxMjgxLCJuYmYiOjE2MDU5NTc2ODEsImp0aSI6IkFYakFrUkwwVXR2UjVxdlAiLCJzdWIiOjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.L3Wa3mdpRyDuu5E4s-2Sbi_XN2SicNOGAKHB44bspr0";
 
-        UtilProvider.getSharedPreferenceUtil().setToken("Bearer " + token);
-        fragmentView = inflater.inflate(R.layout.fragment_scan_asset, container, false);
-        setPresenter(
-                new DetailAssetPresenter(this, new DetailAssetInteractor(
-                        UtilProvider.getSharedPreferenceUtil()
-                ))
-        );
+//        UtilProvider.getSharedPreferenceUtil().setToken("Bearer " + token);
+        fragmentView = inflater.inflate(R.layout.fragment_detail_asset, container, false);
+//        setPresenter(
+//                new DetailAssetPresenter(this, new DetailAssetInteractor(
+//                        UtilProvider.getSharedPreferenceUtil()
+//                ))
+//        );
         mPresenter.start();
         initViews();
         setTitle("Detail Asset");
@@ -79,7 +79,7 @@ public class DetailAssetFragment
         tvNameValue.setText(asset.getName());
         tvTypeValue.setText(asset.getType());
         tvStatusValue.setText(asset.getStatus());
-        tvPuchaseDateValue.setText(asset.getPurchaseDate());
+        tvPuchaseDateValue.setText(asset.getPurchase_date());
         tvLocationValue.setText(asset.getLocation());
         tvPriceValue.setText(asset.getPrice());
         tvNoteValue.setText(asset.getNote());
