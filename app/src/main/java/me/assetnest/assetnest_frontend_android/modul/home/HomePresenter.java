@@ -2,6 +2,7 @@ package me.assetnest.assetnest_frontend_android.modul.home;
 
 import java.util.List;
 
+import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
 import me.assetnest.assetnest_frontend_android.model.Asset;
 
 /**
@@ -21,7 +22,20 @@ public class HomePresenter implements HomeContract.Presenter{
     public void start() {}
 
     @Override
-    public List<Asset> getListAsset(String filter) {
-        return interactor.requestListAssset(filter);
+    public void requestListAsset() {
+        view.startLoading();
+        interactor.requestListAsset(new RequestCallback<List<Asset>>() {
+            @Override
+            public void requestSuccess(List<Asset> data) {
+                view.endLoading();
+                view.showListAsset(data);
+            }
+
+            @Override
+            public void requestFailed(String errorMessage) {
+                view.endLoading();
+                view.showError(errorMessage);
+            }
+        });
     }
 }

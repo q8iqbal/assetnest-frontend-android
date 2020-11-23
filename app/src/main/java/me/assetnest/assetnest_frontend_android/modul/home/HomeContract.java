@@ -2,7 +2,6 @@ package me.assetnest.assetnest_frontend_android.modul.home;
 
 import java.util.List;
 
-import me.assetnest.assetnest_frontend_android.api_response.PaginatedResponse;
 import me.assetnest.assetnest_frontend_android.base.BasePresenter;
 import me.assetnest.assetnest_frontend_android.base.BaseView;
 import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
@@ -10,14 +9,16 @@ import me.assetnest.assetnest_frontend_android.model.Asset;
 
 public interface HomeContract {
     interface View extends BaseView<Presenter> {
-//        void redirectToAddTask();
-//        void redirectToFormTask(int type, int pos, int id);
+        void startLoading();
+        void endLoading();
+        void showListAsset(List<Asset> assets);
+        void showError(String errorMessage);
     }
 
     interface Presenter extends BasePresenter {
-        List<Asset> getListAsset(String filter);
+        void requestListAsset();
     }
     interface Interactor{
-        List<Asset> requestListAssset(String filter);
+        void requestListAsset(RequestCallback<List<Asset>> requestCallback);
     }
 }

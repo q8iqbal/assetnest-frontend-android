@@ -32,10 +32,8 @@ import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 
 public class HomeFragment extends BaseFragment<HomeActivity, HomeContract.Presenter> implements HomeContract.View {
-    List<Asset> listAsset;
     String TAG = "TES_API";
     ListView lvAsset;
-    String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkuYXNzZXRuZXN0Lm1lXC9sb2dpbiIsImlhdCI6MTYwNTk1NzUzOCwiZXhwIjoxNjA1OTYxMTM4LCJuYmYiOjE2MDU5NTc1MzgsImp0aSI6IjMxZk5PeXRXUHRxZXhSZ3giLCJzdWIiOjYsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.L5KD9im6X75333_zyZkM9LHL3eN3ZEA-j9jHTUUi8aE";
     SearchView svAsset;
 
     public HomeFragment() {
@@ -47,10 +45,10 @@ public class HomeFragment extends BaseFragment<HomeActivity, HomeContract.Presen
         super.onCreateView(inflater, container, savedInstanceState);
         AndroidNetworking.initialize(getActivity().getApplicationContext());
         fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
+        lvAsset = fragmentView.findViewById(R.id.lvAsset);
         mPresenter = new HomePresenter(this, new HomeInteractor(UtilProvider.getSharedPreferenceUtil()));
         mPresenter.start();
-        listAsset = mPresenter.getListAsset("");
-        Log.d(TAG, "panjang e : "+listAsset.size());
+        mPresenter.requestListAsset();
         setTitle("Home");
 
 //        svAsset = fragmentView.findViewById(R.id.svAsset);
@@ -85,70 +83,32 @@ public class HomeFragment extends BaseFragment<HomeActivity, HomeContract.Presen
 //        });
         return fragmentView;
     }
-//    public void getAllPagesFromAPI(final String s){
-//        AndroidNetworking.get("http://api.assetnest.me/assets"+s)
-//                .addHeaders("Authorization", "Bearer "+token)
-//                .setPriority(Priority.LOW)
-//                .build()
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        // do anything with response
-//                        try {
-//                            for(int i=1; i<=response.getJSONObject("data").getInt("last_page"); i++){
-//                                getDataPerPageFromAPI(i,s);
-//                            }
-//                        } catch (JSONException e) {
-//                            Log.d(TAG, "Response masuk, tapi catch");
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                    @Override
-//                    public void onError(ANError error) {
-//                        // handle error
-//                        Log.d(TAG, "Response gagal "+error.getErrorCode());
-//                    }
-//                });
-//
-//
-//    }
-//    public void getDataPerPageFromAPI(int i, String s){
-//        AndroidNetworking.get("http://api.assetnest.me/assets"+s)
-//                .addQueryParameter("page", String.valueOf(i))
-//                .addHeaders("Authorization", "Bearer "+token)
-//                .setPriority(Priority.LOW)
-//                .build()
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        // do anything with response
-//                        try {
-//                            JSONArray responseData = response.getJSONObject("data").getJSONArray("data");
-//                            Log.d(TAG, "Response masuk"+responseData);
-//                            if (responseData != null) {
-//                                for (int i=0;i<responseData.length();i++){
-//                                    Gson g = new Gson();
-//                                    Asset a = g.fromJson(responseData.getString(i), Asset.class);
-//                                    listAsset.add(a);
-//                                }
-//                            }
-//                            AssetAdapter adapter = new AssetAdapter(getActivity().getApplicationContext(), (ArrayList<Asset>) listAsset);
-//                            lvAsset.setAdapter(adapter);
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                    @Override
-//                    public void onError(ANError error) {
-//                        // handle error
-//                        Log.d(TAG, "Response gagal "+error.getErrorCode());
-//                    }
-//                });
-//    }
-
     @Override
     public void setPresenter(HomeContract.Presenter presenter) {
         mPresenter = presenter;
     }
 
+    @Override
+    public void startLoading() {
+
+    }
+
+    @Override
+    public void endLoading() {
+
+    }
+
+    @Override
+    public void showListAsset(List<Asset> assets) {
+        Log.d(TAG, "panjang asset : "+assets.size());
+        Log.d(TAG, "panjang asset : "+assets.get(1).getName());
+
+        AssetAdapter adapter = new AssetAdapter(getActivity().getApplicationContext(), (ArrayList<Asset>) assets);
+        lvAsset.setAdapter(adapter);
+    }
+
+    @Override
+    public void showError(String errorMessage) {
+
+    }
 }

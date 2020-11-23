@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Lepi Mahak"
-        app:layout_constraintTop_toBottomOf="@+id/tv_history_code"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_history_code" />
 
     <TextView
         android:id="@+id/tv_history_status"
