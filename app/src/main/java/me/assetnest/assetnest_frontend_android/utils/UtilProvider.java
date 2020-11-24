@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class UtilProvider {
-    private static me.assetnest.assetnest_frontend_android.utils.SharedPreferenceUtil sharedPreferenceUtil;
+    private static SharedPreferenceUtil sharedPreferenceUtil;
 
     public static void initialize(Context context){
         initSharedPreferenceUtil(context);
@@ -12,10 +12,10 @@ public class UtilProvider {
 
     public static void initSharedPreferenceUtil(Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences("shared", Context.MODE_PRIVATE);
-        sharedPreferenceUtil = new me.assetnest.assetnest_frontend_android.utils.SharedPreferenceUtil(sharedPreferences);
+        sharedPreferenceUtil = new SharedPreferenceUtil(sharedPreferences);
     }
 
-    public static me.assetnest.assetnest_frontend_android.utils.SharedPreferenceUtil getSharedPreferenceUtil() {
+    public static SharedPreferenceUtil getSharedPreferenceUtil() {
         return sharedPreferenceUtil;
     }
 }

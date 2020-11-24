@@ -1,4 +1,4 @@
-package me.assetnest.assetnest_frontend_android.modul.EditProfile;
+package me.assetnest.assetnest_frontend_android.modul.editProfile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
@@ -28,7 +27,7 @@ public class EditProfileFragment extends BaseFragment<EditProfileActivity, EditP
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         fragmentView = inflater.inflate(R.layout.fragment_edit_profile, container, false);
-        mPresenter = new me.assetnest.assetnest_frontend_android.modul.EditProfile.EditProfilePresenter(this);
+        mPresenter = new me.assetnest.assetnest_frontend_android.modul.editProfile.EditProfilePresenter(this);
         mPresenter.start();
 
         btnSave = fragmentView.findViewById(R.id.save);

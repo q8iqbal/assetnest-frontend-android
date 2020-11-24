@@ -1,4 +1,4 @@
-package me.assetnest.assetnest_frontend_android.modul.EditProfile;
+package me.assetnest.assetnest_frontend_android.modul.editProfile;
 
 import me.assetnest.assetnest_frontend_android.base.BasePresenter;
 import me.assetnest.assetnest_frontend_android.base.BaseView;

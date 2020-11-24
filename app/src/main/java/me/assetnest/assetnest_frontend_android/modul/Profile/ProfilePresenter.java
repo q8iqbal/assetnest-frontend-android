@@ -1,35 +1,34 @@
-package me.assetnest.assetnest_frontend_android.modul.Profile;
+package me.assetnest.assetnest_frontend_android.modul.profile;
 
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.google.gson.Gson;
 
-import org.json.JSONObject;
-
-import me.assetnest.assetnest_frontend_android.modul.Profile.ProfileFragment;
-import me.assetnest.assetnest_frontend_android.utils.Constant;
+import me.assetnest.assetnest_frontend_android.model.Asset;
+import me.assetnest.assetnest_frontend_android.model.User;
 
 public class ProfilePresenter implements ProfileContract.Presenter{
     private final ProfileContract.View view;
+    private final ProfileContract.Interactor interactor;
 
-    public ProfilePresenter(ProfileContract.View view) {
+    public ProfilePresenter(ProfileContract.View view, ProfileContract.Interactor interactor) {
         this.view = view;
+        this.interactor = interactor;
     }
 
     @Override
     public void start() {}
 
-    @Override
-    public void performEditTask(){
-        view.redirectToSuccesEdit();
+    public User parseUser(){
+        String userJSON = interactor.getUser();
+        Gson g = new Gson();
+        User user = g.fromJson(userJSON, User.class);
+        return user;
     }
 
     @Override
-    public void requestData(String token, String id) {
-        AndroidNetworking.get(Constant.BASE_URL + "users/{userId}")
-                .addPathParameter("userId", id)
-                .addHeaders("Authorization", "Bearer " + token)
-                .build()
-                .getAsObject();
+    public void getUser() {
+        String userJSON = interactor.getUser();
+        Gson g = new Gson();
+        User user = g.fromJson(userJSON, User.class);
+        view.showProfile(user);
     }
 }
