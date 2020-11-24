@@ -51,7 +51,6 @@ public class API extends AppCompatActivity {
                     getAllPagesFromAPI("");
                 return true;
             }
-
             @Override
             public boolean onQueryTextChange(String s) {
                 return false;
@@ -89,8 +88,6 @@ public class API extends AppCompatActivity {
                         Log.d(TAG, "Response gagal "+error.getErrorCode());
                     }
                 });
-
-
     }
     public void getDataPerPageFromAPI(int i, String s){
         AndroidNetworking.get("http://api.assetnest.me/assets"+s)

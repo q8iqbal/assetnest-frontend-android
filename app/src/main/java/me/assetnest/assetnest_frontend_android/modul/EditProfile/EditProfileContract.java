@@ -11,4 +11,8 @@ public interface EditProfileContract {
     interface Presenter extends BasePresenter {
         void performEditProfile();
     }
+
+    interface Interactor{
+        String getUser();
+    }
 }

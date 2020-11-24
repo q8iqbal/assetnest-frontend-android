@@ -1,13 +1,11 @@
 package me.assetnest.assetnest_frontend_android.modul.profile;
 
-<<<<<<< HEAD
 import com.google.gson.Gson;
 
+import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
 import me.assetnest.assetnest_frontend_android.model.Asset;
+import me.assetnest.assetnest_frontend_android.model.Company;
 import me.assetnest.assetnest_frontend_android.model.User;
-=======
-import me.assetnest.assetnest_frontend_android.modul.Profile.ProfileFragment;
->>>>>>> chandra2
 
 public class ProfilePresenter implements ProfileContract.Presenter{
     private final ProfileContract.View view;
@@ -34,5 +32,22 @@ public class ProfilePresenter implements ProfileContract.Presenter{
         Gson g = new Gson();
         User user = g.fromJson(userJSON, User.class);
         view.showProfile(user);
+    }
+
+    @Override
+    public void requestCompany() {
+        //view.startLoading();
+        interactor.requestCompany(new RequestCallback<Company>() {
+            @Override
+            public void requestSuccess(Company data) {
+                //view.endLoading();
+                view.showCompany(data);
+            }
+            @Override
+            public void requestFailed(String errorMessage) {
+                //view.endLoading();
+                view.showError(errorMessage);
+            }
+        });
     }
 }

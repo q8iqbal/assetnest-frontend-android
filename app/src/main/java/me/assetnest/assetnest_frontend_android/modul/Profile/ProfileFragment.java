@@ -38,19 +38,7 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
         initView();
         mPresenter.getUser();
 
-<<<<<<< HEAD
         setTitle("Profile");
-=======
-//        btnSignOut = fragmentView.findViewById(R.id.);
-//        btnSignOut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                setBtLoginClick();
-//            }
-//        });
-
-        setTitle("PROFILE");
->>>>>>> chandra2
         return fragmentView;
     }
 
@@ -60,7 +48,6 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
         tvEmail = fragmentView.findViewById(R.id.tv_email_value);
         btnSignOut = fragmentView.findViewById(R.id.sign_out);
     }
-
 
     @Override
     public void setPresenter(ProfileContract.Presenter presenter) {

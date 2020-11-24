@@ -21,15 +21,6 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
         tvToolbarTitle = (TextView) findViewById(R.id.tvToolbarTitle);
         flFragmentContainer = (FrameLayout) findViewById(R.id.flFragmentContainer);
         rlActivityFragmentHolder = (RelativeLayout) findViewById(R.id.rlActivityFragmentHolder);
-<<<<<<< HEAD
-=======
-//        btBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
->>>>>>> chandra2
     }
 
     public void setTitle(String title) {

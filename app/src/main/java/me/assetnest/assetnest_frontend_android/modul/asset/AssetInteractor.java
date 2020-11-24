@@ -27,7 +27,6 @@ public class AssetInteractor implements AssetContract.Interactor{
         this.token = sharedPreferenceUtil.getToken();
     }
 
-
     @Override
     public void requestAsset(final RequestCallback<Asset> requestCallback) {
         AndroidNetworking.get(Constant.SHOW_ASSET + "/20")

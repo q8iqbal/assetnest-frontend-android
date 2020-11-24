@@ -25,7 +25,9 @@ public class SharedPreferenceUtil {
         sharedPreferences.edit().putString(USER, user).apply();
     }
 
-    public String getUser() { return sharedPreferences.getString(USER, null); }
+    public String getUser() {
+        return sharedPreferences.getString(USER, null);
+    }
 
     public void clear(){
         sharedPreferences.edit().clear().apply();
