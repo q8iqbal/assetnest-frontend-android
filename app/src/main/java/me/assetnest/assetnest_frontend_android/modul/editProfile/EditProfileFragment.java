@@ -12,12 +12,15 @@ import androidx.annotation.Nullable;
 
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
+import me.assetnest.assetnest_frontend_android.databinding.FragmentEditProfileBinding;
 
-public class EditProfileFragment extends BaseFragment<EditProfileActivity, EditProfileContract.Presenter> implements EditProfileContract.View {
+public class EditProfileFragment extends BaseFragment<EditProfileActivity, EditProfileContract.Presenter> implements EditProfileContract.View, View.OnClickListener {
 
     EditText etFullName;
     EditText etPassword;
     Button btnSave;
+
+    private FragmentEditProfileBinding binding;
 
     public EditProfileFragment() {
     }
@@ -26,24 +29,16 @@ public class EditProfileFragment extends BaseFragment<EditProfileActivity, EditP
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        fragmentView = inflater.inflate(R.layout.fragment_edit_profile, container, false);
-        mPresenter = new me.assetnest.assetnest_frontend_android.modul.editProfile.EditProfilePresenter(this);
+
+        binding = FragmentEditProfileBinding.inflate(inflater , container, false);
+        mPresenter = new EditProfilePresenter(this);
         mPresenter.start();
+//        binding.btSave.setOnClickListener(this);
 
-        btnSave = fragmentView.findViewById(R.id.save);
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setBtLoginClick();
-            }
-        });
-
+        View view = binding.getRoot();
         setTitle("EDIT PROFILE");
-        return fragmentView;
-    }
 
-    public void setBtLoginClick(){
-        mPresenter.performEditProfile();
+        return view;
     }
 
     @Override
@@ -56,5 +51,16 @@ public class EditProfileFragment extends BaseFragment<EditProfileActivity, EditP
         Intent intent = new Intent(activity, EditProfileActivity.class);
         startActivity(intent);
         activity.finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+//        if(v.getId() == binding.btSave.getId()){
+//            onButtonLoginClick();
+//        }
+    }
+
+    public void onButtonLoginClick(){
+        mPresenter.performEditProfile();
     }
 }

@@ -26,6 +26,7 @@
         <activity android:name=".modul.profile.ProfileActivity" android:theme="@style/Theme.Assetnest" />
         <activity android:name=".modul.asset.AssetActivity" android:theme="@style/Theme.Assetnest" />
         <activity android:name=".modul.history.HistoryActivity" android:theme="@style/Theme.Assetnest" />
+        <activity android:name=".modul.editProfile.EditProfileActivity" android:theme="@style/Theme.Assetnest" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

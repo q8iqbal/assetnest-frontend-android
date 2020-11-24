@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:outlineProvider="background">
 
-    <!--    xmlns:tools="http://schemas.android.com/tools"-->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -101,10 +100,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password_placeholder"
-                android:password="true" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
