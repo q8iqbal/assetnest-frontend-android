@@ -3,11 +3,12 @@ package me.assetnest.assetnest_frontend_android.modul.profile;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.google.gson.Gson;
 
 import me.assetnest.assetnest_frontend_android.api_response.AssetResponse;
 import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
-import me.assetnest.assetnest_frontend_android.model.Asset;
 import me.assetnest.assetnest_frontend_android.model.Company;
+import me.assetnest.assetnest_frontend_android.model.User;
 import me.assetnest.assetnest_frontend_android.utils.Constant;
 import me.assetnest.assetnest_frontend_android.utils.SharedPreferenceUtil;
 
@@ -25,13 +26,14 @@ public class ProfileInteractor implements ProfileContract.Interactor{
 
     @Override
     public void requestCompany(final RequestCallback<Company> requestCallback) {
-        String id = getUser().get
-        AndroidNetworking.get(Constant.SHOW_COMPANY + "/4")
+        User user = new Gson().fromJson(getUser(), User.class);
+        AndroidNetworking.get(Constant.SHOW_COMPANY + "/{id}")
+                .addPathParameter("id", Integer.toString(user.getId()))
                 .addHeaders("Authorization", token)
                 .build()
-                .getAsObject(AssetResponse.class, new ParsedRequestListener<AssetResponse>() {
+                .getAsObject(AssetResponse.class, new ParsedRequestListener<CompanyResponse>() {
                     @Override
-                    public void onResponse(AssetResponse response) {
+                    public void onResponse(CompanyResponse response) {
                         if(response != null){
                             requestCallback.requestSuccess(response.data);
                         }

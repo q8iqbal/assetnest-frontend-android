@@ -23,11 +23,9 @@ public class LoginPresenter implements LoginContract.Presenter{
             public void requestSuccess(LoginResponse data) {
                 interactor.saveToken(data.token_type+" "+data.token);
                 interactor.saveUser(new Gson().toJson(data.user));
-
                 view.endLoading();
                 view.loginSuccess();
             }
-
             @Override
             public void requestFailed(String errorMessage) {
                 view.endLoading();
@@ -42,5 +40,4 @@ public class LoginPresenter implements LoginContract.Presenter{
             view.loginSuccess();
         }
     }
-
 }
