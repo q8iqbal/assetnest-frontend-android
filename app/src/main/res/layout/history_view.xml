@@ -32,10 +32,10 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="?attr/panelColor"
+        app:cardBackgroundColor="@color/colorLightGrey"
         card_view:cardCornerRadius="7dp"
         card_view:contentPadding="10dp">
-
+<!--        app:cardBackgroundColor="?attr/panelColor"-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
