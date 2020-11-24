@@ -1,6 +1,7 @@
 package me.assetnest.assetnest_frontend_android.model;
 
 public class User {
+<<<<<<< HEAD
     private int id;
     private int company_id;
     private String name;
@@ -36,12 +37,38 @@ public class User {
 
     public String getName() {
         return name;
+=======
+    private String fullname;
+    private String company_name;
+    private String email;
+    private String password;
+
+    public User(String fullname, String company_name, String email, String password) {
+        this.fullname = fullname;
+        this.company_name = company_name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String password) {
+        this.fullname = fullname;
+        this.password = password;
+    }
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public String getFullname() {
+        return fullname;
+>>>>>>> chandra2
     }
 
     public String getEmail() {
         return email;
     }
 
+<<<<<<< HEAD
     public String getImage() {
         return image;
     }
@@ -57,4 +84,9 @@ public class User {
     public String getDeleted_at() {
         return deleted_at;
     }
+=======
+    public String getPassword() {
+        return password;
+    }
+>>>>>>> chandra2
 }

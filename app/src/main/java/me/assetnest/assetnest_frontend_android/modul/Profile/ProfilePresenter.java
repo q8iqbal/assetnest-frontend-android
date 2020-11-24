@@ -1,9 +1,13 @@
 package me.assetnest.assetnest_frontend_android.modul.profile;
 
+<<<<<<< HEAD
 import com.google.gson.Gson;
 
 import me.assetnest.assetnest_frontend_android.model.Asset;
 import me.assetnest.assetnest_frontend_android.model.User;
+=======
+import me.assetnest.assetnest_frontend_android.modul.Profile.ProfileFragment;
+>>>>>>> chandra2
 
 public class ProfilePresenter implements ProfileContract.Presenter{
     private final ProfileContract.View view;
