@@ -5,20 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
-import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.databinding.FragmentEditProfileBinding;
 
 public class EditProfileFragment extends BaseFragment<EditProfileActivity, EditProfileContract.Presenter> implements EditProfileContract.View, View.OnClickListener {
-
-    EditText etFullName;
-    EditText etPassword;
-    Button btnSave;
 
     private FragmentEditProfileBinding binding;
 
@@ -36,7 +29,7 @@ public class EditProfileFragment extends BaseFragment<EditProfileActivity, EditP
 //        binding.btSave.setOnClickListener(this);
 
         View view = binding.getRoot();
-        setTitle("EDIT PROFILE");
+        setTitle("Edit Profile");
 
         return view;
     }
