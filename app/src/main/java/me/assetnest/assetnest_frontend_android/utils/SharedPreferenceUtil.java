@@ -1,6 +1,4 @@
 package me.assetnest.assetnest_frontend_android.utils;
-
-import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPreferenceUtil {
@@ -8,6 +6,7 @@ public class SharedPreferenceUtil {
 
     private static final String TOKEN = "jwt_token";
     private static final String USER = "user";
+    private static final String COMPANY = "company";
 
     public SharedPreferenceUtil(SharedPreferences sharedPreferences){
         this.sharedPreferences = sharedPreferences;
@@ -26,6 +25,12 @@ public class SharedPreferenceUtil {
     }
 
     public String getUser() { return sharedPreferences.getString(USER, null); }
+
+    public void setCompany(String company){
+        sharedPreferences.edit().putString(COMPANY, company).apply();
+    }
+
+    public String getCompany() { return sharedPreferences.getString(COMPANY, null); }
 
     public void clear(){
         sharedPreferences.edit().clear().apply();
