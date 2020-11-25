@@ -1,16 +1,17 @@
 package me.assetnest.assetnest_frontend_android.modul.scanasset;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -31,15 +32,17 @@ public class ScanAssetFragment
 	implements ScanAssetContract.View {
     ConstraintLayout clFragmentScanAsset;
     int currentAssetId;
+    String currentAssetCode;
     EditText etAssetCode;
     EditText etAssetName;
     EditText etCurrentStatus;
     Spinner spinnerAction;
+    Button buttonSaveChange;
     ProgressBar pbFragmentScanAsset;
 
     private void hideKeyboard(View view) {
-        InputMethodManager imm = (InputMethodManager) getActivity()
-                .getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager imm
+                = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
@@ -53,6 +56,7 @@ public class ScanAssetFragment
         etAssetName = fragmentView.findViewById(R.id.et_asset_name);
         etCurrentStatus = fragmentView.findViewById(R.id.et_current_status);
         spinnerAction = fragmentView.findViewById(R.id.spinner_action);
+        buttonSaveChange = fragmentView.findViewById(R.id.button_save_change);
         pbFragmentScanAsset = fragmentView.findViewById(R.id.pb_fragment_scan_asset);
 
         etAssetCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -83,19 +87,44 @@ public class ScanAssetFragment
             }
         });
 
-        spinnerAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        buttonSaveChange.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String newStatus = (String) parent.getItemAtPosition(position);
+            public void onClick(View v) {
+                String newStatus = spinnerAction.getSelectedItem().toString();
                 String currentStatus = etCurrentStatus.getText().toString();
 
-                if (currentAssetId != -1 && !newStatus.equalsIgnoreCase(currentStatus)) {
-                    mPresenter.saveStatusChange(currentAssetId, newStatus);
+                if (currentAssetId != -1) {
+                    if (newStatus.equalsIgnoreCase(currentStatus)) {
+                        showToastMessage("Asset status already up-to-date.");
+                    } else {
+                        alertSaveChangeConfirmation();
+                    }
+                } else {
+                    showToastMessage("No asset currently selected.");
                 }
             }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
         });
+    }
+
+    private void alertSaveChangeConfirmation() {
+        String assetCode = currentAssetCode;
+        String currentStatus = etCurrentStatus.getText().toString();
+        final String newStatus = spinnerAction.getSelectedItem().toString();
+        String alertMessage = "You're going to change asset \"" + assetCode + "\" status from \""
+                + currentStatus + "\" to \"" + newStatus + "\". Are you sure?";
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
+                .setTitle("Confirm Save Change")
+                .setMessage(alertMessage)
+                .setPositiveButton("Save Change", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mPresenter.saveStatusChange(currentAssetId, newStatus);
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+
+        alertDialog.show();
     }
 
 	@Nullable
@@ -127,6 +156,11 @@ public class ScanAssetFragment
     }
 
     @Override
+    public void setCurrentAssetCode(String code) {
+        currentAssetCode = code;
+    }
+
+    @Override
     public void startLoading() {
         pbFragmentScanAsset.setVisibility(View.VISIBLE);
     }
@@ -138,10 +172,12 @@ public class ScanAssetFragment
 
     @Override
     public void showAsset(Asset asset) {
+        String code = asset.getCode();
         String name = asset.getName();
         String status = asset.getStatus();
         int selectionIndex = getSpinnerStringPosition(spinnerAction, status);
 
+        etAssetCode.setText(code);
         etAssetName.setText(name);
         etCurrentStatus.setText(status);
         if (selectionIndex != -1) {
@@ -157,6 +193,7 @@ public class ScanAssetFragment
     @Override
     public void resetFields() {
         setCurrentAssetId(-1);
+        setCurrentAssetCode(etAssetCode.getText().toString());
         etAssetName.setText("");
         etCurrentStatus.setText("");
         spinnerAction.setSelection(getSpinnerStringPosition(spinnerAction, "Used"));

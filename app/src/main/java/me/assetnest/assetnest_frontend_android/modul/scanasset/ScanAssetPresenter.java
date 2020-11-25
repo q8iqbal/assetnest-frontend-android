@@ -27,6 +27,7 @@ public class ScanAssetPresenter implements ScanAssetContract.Presenter {
             public void requestSuccess(Asset data) {
                 view.endLoading();
                 view.setCurrentAssetId(data.getId());
+                view.setCurrentAssetCode(data.getCode());
                 view.showAsset(data);
             }
 

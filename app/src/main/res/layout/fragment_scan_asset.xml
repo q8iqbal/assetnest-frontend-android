@@ -50,7 +50,7 @@
                 android:id="@+id/tv_asset_code"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/asset_id_text"
                 android:textColor="@color/colorAccent"
@@ -196,6 +196,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/et_current_status"
                 app:layout_constraintTop_toBottomOf="@id/tv_action" />
+
+            <Button
+                android:id="@+id/button_save_change"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/button_save_change_text"
+                android:textColor="@color/colorLightGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinner_action" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
