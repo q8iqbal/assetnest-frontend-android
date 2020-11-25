@@ -11,87 +11,85 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
+import me.assetnest.assetnest_frontend_android.databinding.FragmentScanAssetBinding;
 import me.assetnest.assetnest_frontend_android.model.Asset;
 import me.assetnest.assetnest_frontend_android.modul.login.LoginActivity;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 public class ScanAssetFragment
-	extends BaseFragment<ScanAssetActivity, ScanAssetContract.Presenter>
-	implements ScanAssetContract.View {
-    ConstraintLayout clFragmentScanAsset;
+        extends BaseFragment<ScanAssetActivity, ScanAssetContract.Presenter>
+        implements ScanAssetContract.View {
+    FragmentScanAssetBinding binding;
     int currentAssetId;
     String currentAssetCode;
-    EditText etAssetCode;
-    EditText etAssetName;
-    EditText etCurrentStatus;
-    Spinner spinnerAction;
-    Button buttonSaveChange;
-    ProgressBar pbFragmentScanAsset;
 
-    private void hideKeyboard(View view) {
-        InputMethodManager imm
-                = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        binding = FragmentScanAssetBinding.inflate(inflater, container, false);
+        fragmentView = binding.getRoot();
+        setPresenter(
+                new ScanAssetPresenter(this, new ScanAssetInteractor(
+                        UtilProvider.getSharedPreferenceUtil()
+                ))
+        );
+        mPresenter.start();
+        initViews();
+        setTitle("Scan Asset");
+
+        return fragmentView;
     }
 
-    private void loadAssetByCode(String assetCode) {
-        mPresenter.loadAssetByCode(assetCode);
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
     private void initViews() {
-        clFragmentScanAsset = fragmentView.findViewById((R.id.cl_fragment_scan_asset));
-        etAssetCode = fragmentView.findViewById(R.id.et_asset_code);
-        etAssetName = fragmentView.findViewById(R.id.et_asset_name);
-        etCurrentStatus = fragmentView.findViewById(R.id.et_current_status);
-        spinnerAction = fragmentView.findViewById(R.id.spinner_action);
-        buttonSaveChange = fragmentView.findViewById(R.id.button_save_change);
-        pbFragmentScanAsset = fragmentView.findViewById(R.id.pb_fragment_scan_asset);
-
-        etAssetCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        binding.etAssetCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE
-                        && !etAssetCode.getText().toString().equals("")) {
+                        && !binding.etAssetCode.getText().toString().equals("")) {
                     hideKeyboard(v);
-                    loadAssetByCode(etAssetCode.getText().toString());
+                    loadAssetByCode(binding.etAssetCode.getText().toString());
                     return true;
                 }
                 return false;
             }
         });
 
-        clFragmentScanAsset.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        binding.clFragmentScanAsset.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 hideKeyboard(v);
             }
         });
 
-        clFragmentScanAsset.setOnClickListener(new View.OnClickListener() {
+        binding.clFragmentScanAsset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etAssetCode.clearFocus();
+                binding.etAssetCode.clearFocus();
                 hideKeyboard(v);
             }
         });
 
-        buttonSaveChange.setOnClickListener(new View.OnClickListener() {
+        binding.buttonSaveChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String newStatus = spinnerAction.getSelectedItem().toString();
-                String currentStatus = etCurrentStatus.getText().toString();
+                String newStatus = binding.spinnerAction.getSelectedItem().toString();
+                String currentStatus = binding.etCurrentStatus.getText().toString();
 
                 if (currentAssetId != -1) {
                     if (newStatus.equalsIgnoreCase(currentStatus)) {
@@ -106,10 +104,20 @@ public class ScanAssetFragment
         });
     }
 
+    private void hideKeyboard(View view) {
+        InputMethodManager imm
+                = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void loadAssetByCode(String assetCode) {
+        mPresenter.loadAssetByCode(assetCode);
+    }
+
     private void alertSaveChangeConfirmation() {
         String assetCode = currentAssetCode;
-        String currentStatus = etCurrentStatus.getText().toString();
-        final String newStatus = spinnerAction.getSelectedItem().toString();
+        String currentStatus = binding.etCurrentStatus.getText().toString();
+        final String newStatus = binding.spinnerAction.getSelectedItem().toString();
         String alertMessage = "You're going to change asset \"" + assetCode + "\" status from \""
                 + currentStatus + "\" to \"" + newStatus + "\". Are you sure?";
         AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
@@ -125,24 +133,6 @@ public class ScanAssetFragment
                 .create();
 
         alertDialog.show();
-    }
-
-	@Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        fragmentView = inflater.inflate(R.layout.fragment_scan_asset, container, false);
-        setPresenter(
-            new ScanAssetPresenter(this, new ScanAssetInteractor(
-                UtilProvider.getSharedPreferenceUtil()
-            ))
-        );
-        mPresenter.start();
-        initViews();
-        setTitle("Scan Asset");
-
-        return fragmentView;
     }
 
     @Override
@@ -162,12 +152,12 @@ public class ScanAssetFragment
 
     @Override
     public void startLoading() {
-        pbFragmentScanAsset.setVisibility(View.VISIBLE);
+        binding.pbFragmentScanAsset.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void endLoading() {
-        pbFragmentScanAsset.setVisibility(View.GONE);
+        binding.pbFragmentScanAsset.setVisibility(View.GONE);
     }
 
     @Override
@@ -175,13 +165,13 @@ public class ScanAssetFragment
         String code = asset.getCode();
         String name = asset.getName();
         String status = asset.getStatus();
-        int selectionIndex = getSpinnerStringPosition(spinnerAction, status);
+        int selectionIndex = getSpinnerStringPosition(binding.spinnerAction, status);
 
-        etAssetCode.setText(code);
-        etAssetName.setText(name);
-        etCurrentStatus.setText(status);
+        binding.etAssetCode.setText(code);
+        binding.etAssetName.setText(name);
+        binding.etCurrentStatus.setText(status);
         if (selectionIndex != -1) {
-            spinnerAction.setSelection(selectionIndex);
+            binding.spinnerAction.setSelection(selectionIndex);
         }
     }
 
@@ -193,10 +183,12 @@ public class ScanAssetFragment
     @Override
     public void resetFields() {
         setCurrentAssetId(-1);
-        setCurrentAssetCode(etAssetCode.getText().toString());
-        etAssetName.setText("");
-        etCurrentStatus.setText("");
-        spinnerAction.setSelection(getSpinnerStringPosition(spinnerAction, "Used"));
+        setCurrentAssetCode(binding.etAssetCode.getText().toString());
+        binding.etAssetName.setText("");
+        binding.etCurrentStatus.setText("");
+        binding.spinnerAction.setSelection(
+                getSpinnerStringPosition(binding.spinnerAction, "Used")
+        );
     }
 
     @Override
