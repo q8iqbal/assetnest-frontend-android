@@ -15,7 +15,7 @@ public class AssetPresenter implements AssetContract.Presenter{
     public void start() {}
 
     @Override
-    public void requestAsset() {
+    public void requestAsset(int id) {
         view.startLoading();
         interactor.requestAsset(new RequestCallback<Asset>() {
             @Override
@@ -29,6 +29,6 @@ public class AssetPresenter implements AssetContract.Presenter{
                 view.endLoading();
                 view.showError(errorMessage);
             }
-        });
+        }, id);
     }
 }

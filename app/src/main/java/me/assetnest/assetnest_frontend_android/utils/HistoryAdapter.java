@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import me.assetnest.assetnest_frontend_android.R;
-import me.assetnest.assetnest_frontend_android.model.Asset;
 import me.assetnest.assetnest_frontend_android.model.History;
 
 public class HistoryAdapter extends ArrayAdapter<History> {
@@ -29,7 +28,7 @@ public class HistoryAdapter extends ArrayAdapter<History> {
         // Lookup view for data population
         TextView tvHistoryCode = (TextView) convertView.findViewById(R.id.tv_history_code);
         TextView tvHistoryName = (TextView) convertView.findViewById(R.id.tv_history_name);
-        TextView tvHistoryStatus = (TextView) convertView.findViewById(R.id.tv_history_status);
+        TextView tvHistoryStatus = (TextView) convertView.findViewById(R.id.tv_asset_status);
         TextView tvHistoryDate = (TextView) convertView.findViewById(R.id.tv_history_date);
         // Populate the data into the template view using the data object
         tvHistoryCode.setText("#"+history.getId());

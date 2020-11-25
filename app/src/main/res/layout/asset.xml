@@ -8,10 +8,10 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_asset"
         android:layout_width="124dp"
         android:layout_height="83dp"
-        android:src="@drawable/img_asset_placeholder_background"
+        android:src="@drawable/img_asset_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,7 +25,7 @@
         android:fontFamily="@font/roboto_medium"
         android:text="#IRNKKJDNJ"
         android:textColor="#3e4243"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/iv_asset"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -37,11 +37,11 @@
         android:fontFamily="@font/roboto_bold"
         android:text="Laptop Dell Rayzen DX48043XC"
         android:textColor="#3e4243"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/iv_asset"
         app:layout_constraintTop_toBottomOf="@+id/tvAssetCode" />
 
     <TextView
-        android:id="@+id/tv_history_status"
+        android:id="@+id/tv_asset_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"

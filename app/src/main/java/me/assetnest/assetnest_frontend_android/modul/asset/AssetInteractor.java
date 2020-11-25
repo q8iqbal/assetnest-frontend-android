@@ -29,8 +29,8 @@ public class AssetInteractor implements AssetContract.Interactor{
 
 
     @Override
-    public void requestAsset(final RequestCallback<Asset> requestCallback) {
-        AndroidNetworking.get(Constant.SHOW_ASSET + "/20")
+    public void requestAsset(final RequestCallback<Asset> requestCallback, int id) {
+        AndroidNetworking.get(Constant.SHOW_ASSET + id)
                 .addHeaders("Authorization", token)
                 .build()
                 .getAsObject(AssetResponse.class, new ParsedRequestListener<AssetResponse>() {

@@ -1,5 +1,6 @@
 package me.assetnest.assetnest_frontend_android.modul.history;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
@@ -23,7 +24,7 @@ public class HistoryPresenter implements HistoryContract.Presenter{
     @Override
     public void requestListAsset() {
         view.startLoading();
-        interactor.requestListHistories(new RequestCallback<List<History>>() {
+        interactor.requestPagedHistories(new RequestCallback<List<History>>() {
             @Override
             public void requestSuccess(List<History> data) {
                 view.endLoading();
@@ -35,6 +36,6 @@ public class HistoryPresenter implements HistoryContract.Presenter{
                 view.endLoading();
                 view.showError(errorMessage);
             }
-        });
+        }, 1, new ArrayList<History>());
     }
 }

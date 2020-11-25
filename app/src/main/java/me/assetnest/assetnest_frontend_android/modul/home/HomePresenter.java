@@ -1,9 +1,11 @@
 package me.assetnest.assetnest_frontend_android.modul.home;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
 import me.assetnest.assetnest_frontend_android.model.Asset;
+import me.assetnest.assetnest_frontend_android.model.PaginatedAssets;
 
 /**
  * Created by fahrul on 13/03/19.
@@ -22,9 +24,10 @@ public class HomePresenter implements HomeContract.Presenter{
     public void start() {}
 
     @Override
-    public void requestListAsset() {
+    public void requestListAsset(String filter) {
         view.startLoading();
-        interactor.requestListAsset(new RequestCallback<List<Asset>>() {
+
+        interactor.requestPagedListAsset(new RequestCallback<List<Asset>>() {
             @Override
             public void requestSuccess(List<Asset> data) {
                 view.endLoading();
@@ -36,6 +39,6 @@ public class HomePresenter implements HomeContract.Presenter{
                 view.endLoading();
                 view.showError(errorMessage);
             }
-        });
+        }, 1, new ArrayList<Asset>(), filter);
     }
 }

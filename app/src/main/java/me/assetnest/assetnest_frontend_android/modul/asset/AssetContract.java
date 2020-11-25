@@ -16,10 +16,10 @@ public interface AssetContract {
     }
 
     interface Presenter extends BasePresenter {
-        void requestAsset();
+        void requestAsset(int id);
     }
 
     interface Interactor{
-        void requestAsset(RequestCallback<Asset> requestCallback);
+        void requestAsset(RequestCallback<Asset> requestCallback, int id);
     }
 }

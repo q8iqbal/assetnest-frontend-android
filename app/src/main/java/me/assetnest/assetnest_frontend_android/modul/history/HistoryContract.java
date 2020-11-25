@@ -20,6 +20,7 @@ public interface HistoryContract {
         void requestListAsset();
     }
     interface Interactor{
-        void requestListHistories(RequestCallback<List<History>> requestCallback);
+//        void requestListHistories(RequestCallback<List<History>> requestCallback);
+        void requestPagedHistories(RequestCallback<List<History>> requestCallback, int page, List<History> prefList);
     }
 }
