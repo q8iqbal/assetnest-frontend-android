@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assetnest"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
 <!--        <activity android:name=".MainActivity"></activity>-->
         <activity
             android:name=".modul.splash.SplashActivity"
@@ -42,12 +43,9 @@
             android:name=".modul.scanasset.ScanAssetActivity"
             android:theme="@style/Theme.Assetnest" />
 
-        <activity android:name=".modul.login.LoginActivity" android:theme="@style/Theme.Assetnest" />
-        <activity android:name=".modul.home.HomeActivity" android:theme="@style/Theme.Assetnest" />
-        <activity android:name=".modul.profile.ProfileActivity" android:theme="@style/Theme.Assetnest" />
-        <activity android:name=".modul.asset.AssetActivity" android:theme="@style/Theme.Assetnest" />
-        <activity android:name=".modul.history.HistoryActivity" android:theme="@style/Theme.Assetnest" />
-        <activity android:name=".modul.editProfile.EditProfileActivity" android:theme="@style/Theme.Assetnest" />
+        <activity android:name=".modul.editProfile.EditProfileActivity" android:theme="@style/Theme.Assetnest">
+
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

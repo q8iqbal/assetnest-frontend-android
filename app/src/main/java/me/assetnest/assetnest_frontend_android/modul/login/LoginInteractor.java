@@ -2,12 +2,13 @@ package me.assetnest.assetnest_frontend_android.modul.login;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.google.gson.Gson;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -86,7 +87,7 @@ public class LoginInteractor implements LoginContract.Interactor {
     @Override
     public void saveUser(String user) { sharedPreferenceUtil.setUser(user); }
 
-    @NotNull
+    @NonNull
     private JSONObject createUserJson(String email, String password){
         JSONObject user = new JSONObject();
         JSONObject userObj = new JSONObject();

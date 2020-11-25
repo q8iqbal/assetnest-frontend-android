@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void loginSuccess() {
        this.finish();
-        startActivity(new Intent(this, ScanAssetActivity.class));
+        startActivity(new Intent(this, EditProfileActivity.class));
     }
 
     @Override
