@@ -14,6 +14,7 @@ public interface ScanAssetContract {
 
     interface View extends BaseView<Presenter>{
         void setCurrentAssetId(int assetId);
+        void setCurrentAssetCode(String code);
         void startLoading();
         void endLoading();
         void showAsset(Asset asset);

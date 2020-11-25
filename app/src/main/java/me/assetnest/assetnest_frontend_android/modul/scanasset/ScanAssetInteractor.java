@@ -63,7 +63,7 @@ public class ScanAssetInteractor implements ScanAssetContract.Interactor {
                         Log.d(logTag, "JSONObject asset: " + assetJson.toString(indentSpaces));
                     }
                     if (asset == null) {
-                        String errorMessage = "Asset with code \"" + assetCode + "\" not found";
+                        String errorMessage = "Asset with id \"" + assetCode + "\" not found";
                         requestCallback.requestFailed(errorMessage);
                     } else {
                         requestCallback.requestSuccess(asset);
@@ -142,16 +142,8 @@ public class ScanAssetInteractor implements ScanAssetContract.Interactor {
                 public void onResponse(JSONObject response) {
                     requestGetAssetById(assetId, requestCallback);
                     try {
-//                        requestGetAssetById(assetId, requestCallback);
-//                        JSONObject assetJson = response.getJSONObject("data");
-//                        Asset asset = new Gson().fromJson(assetJson.toString(), Asset.class);
-                        final int indentSpaces = 4;
-
-//                        requestCallback.requestSuccess(asset);
-                        Log.d(logTag, "response: " + response.toString(indentSpaces));
-//                        Log.d(logTag, "JSONObject asset: " + assetJson.toString(indentSpaces));
+                        Log.d(logTag, "response: " + response.toString(4));
                     } catch (JSONException e) {
-//                        requestCallback.requestFailed(e.getMessage());
                         e.printStackTrace();
                         Log.e(logTag, "JSONException error: ", e);
                     }

@@ -1,7 +1,5 @@
 package me.assetnest.assetnest_frontend_android.modul.scanasset;
 
-import android.view.View;
-
 import me.assetnest.assetnest_frontend_android.base.BaseFragmentHolderActivity;
 
 public class ScanAssetActivity extends BaseFragmentHolderActivity {
