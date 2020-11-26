@@ -43,9 +43,8 @@
             android:name=".modul.scanasset.ScanAssetActivity"
             android:theme="@style/Theme.Assetnest" />
 
-        <activity android:name=".modul.editProfile.EditProfileActivity" android:theme="@style/Theme.Assetnest">
-
-        </activity>
+        <activity android:name=".modul.editProfile.EditProfileActivity" android:theme="@style/Theme.Assetnest"/>
+        <activity android:name=".modul.MainActivity" android:theme="@style/Theme.Assetnest"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

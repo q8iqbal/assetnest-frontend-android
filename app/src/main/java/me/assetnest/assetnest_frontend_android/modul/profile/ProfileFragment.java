@@ -15,9 +15,10 @@ import androidx.annotation.Nullable;
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.model.User;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
-public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContract.Presenter> implements ProfileContract.View {
+public class ProfileFragment extends BaseFragment<MainActivity, ProfileContract.Presenter> implements ProfileContract.View {
 
     TextView tvName;
     TextView tvCompany;

@@ -24,7 +24,7 @@ import me.assetnest.assetnest_frontend_android.modul.home.HomeActivity;
 import me.assetnest.assetnest_frontend_android.modul.profile.ProfileActivity;
 import me.assetnest.assetnest_frontend_android.modul.scanasset.ScanAssetActivity;
 
-public abstract class BaseFragmentHolderActivity extends BaseActivity  implements BottomNavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseFragmentHolderActivity extends BaseActivity{
 
     protected TextView tvToolbarTitle;
     protected FrameLayout flFragmentContainer;
@@ -41,36 +41,10 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity  implement
         tvToolbarTitle = (TextView) findViewById(R.id.tvToolbarTitle);
         flFragmentContainer = (FrameLayout) findViewById(R.id.flFragmentContainer);
         rlActivityFragmentHolder = (RelativeLayout) findViewById(R.id.rlActivityFragmentHolder);
-
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavbar);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-
     }
 
     public void setTitle(String title) {
         this.tvToolbarTitle.setText(title);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.mn_home) {
-            Toast.makeText(getApplicationContext(), "Buka Home", Toast.LENGTH_SHORT).show();
-            finish();
-            startActivity(new Intent(this, HomeActivity.class));
-        } else if (item.getItemId() == R.id.mn_scan) {
-            Toast.makeText(getApplicationContext(), "Buka Scan", Toast.LENGTH_SHORT).show();
-            finish();
-            startActivity(new Intent(this, ScanAssetActivity.class));
-        } else if (item.getItemId() == R.id.mn_history) {
-            Toast.makeText(getApplicationContext(), "Buka HIstory", Toast.LENGTH_SHORT).show();
-            finish();
-            startActivity(new Intent(this, HistoryActivity.class));
-        } else if (item.getItemId() == R.id.mn_profile) {
-            Toast.makeText(getApplicationContext(), "Buka Profile", Toast.LENGTH_SHORT).show();
-            finish();
-            startActivity(new Intent(this, ProfileActivity.class));
-        }
-        return false;
-    }
 }

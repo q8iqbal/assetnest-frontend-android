@@ -34,6 +34,7 @@ import java.util.List;
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.model.Asset;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.modul.asset.AssetActivity;
 import me.assetnest.assetnest_frontend_android.modul.history.HistoryActivity;
 import me.assetnest.assetnest_frontend_android.modul.profile.ProfileActivity;
@@ -42,7 +43,7 @@ import me.assetnest.assetnest_frontend_android.utils.AssetAdapter;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 
-public class HomeFragment extends BaseFragment<HomeActivity, HomeContract.Presenter> implements HomeContract.View{
+public class HomeFragment extends BaseFragment<MainActivity, HomeContract.Presenter> implements HomeContract.View{
     String TAG = "TES_API";
     ListView lvAsset;
     SearchView svAsset;
@@ -55,7 +56,6 @@ public class HomeFragment extends BaseFragment<HomeActivity, HomeContract.Presen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        AndroidNetworking.initialize(getActivity().getApplicationContext());
         fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
         lvAsset = fragmentView.findViewById(R.id.lvAsset);
         lvAsset.setOnItemClickListener(new AdapterView.OnItemClickListener() {

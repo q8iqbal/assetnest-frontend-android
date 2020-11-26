@@ -26,12 +26,13 @@ import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.model.Asset;
 import me.assetnest.assetnest_frontend_android.model.History;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.utils.AssetAdapter;
 import me.assetnest.assetnest_frontend_android.utils.HistoryAdapter;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 
-public class HistoryFragment extends BaseFragment<HistoryActivity, HistoryContract.Presenter> implements HistoryContract.View {
+public class HistoryFragment extends BaseFragment<MainActivity, HistoryContract.Presenter> implements HistoryContract.View {
     String TAG = "TES_API";
     ListView lvHistories;
     public HistoryFragment() {

@@ -25,13 +25,6 @@ public class AssetAdapter extends ArrayAdapter<Asset> {
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         final Asset asset = getItem(position);
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Toast.makeText(getContext(), "Terpilih list ke "+asset.getCode(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-        // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.asset, parent, false);
         }

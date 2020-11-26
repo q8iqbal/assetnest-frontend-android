@@ -38,29 +38,6 @@ public class HistoryInteractor implements HistoryContract.Interactor {
         User user = g.fromJson(userJSON, User.class);
         return user.getId();
     }
-//
-//    @Override
-//    public void requestListHistories(final RequestCallback<List<History>> requestCallback) {
-//        AndroidNetworking.get(Constant.SHOW_ASSET)
-//                .addHeaders("Authorization", token)
-//                .build()
-//                .getAsObject(PaginatedHistoriesResponse.class, new ParsedRequestListener<PaginatedHistoriesResponse>() {
-//                    @Override
-//                    public void onResponse(PaginatedHistoriesResponse response) {
-//                        if(response != null){
-//                            requestCallback.requestSuccess(response.data.getData());
-//                        }
-//                        else {
-//                            requestCallback.requestFailed("Null Response");
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(ANError anError) {
-//                        requestCallback.requestFailed(anError.getMessage());
-//                    }
-//                });
-//    }
     @Override
     public void requestPagedHistories(final RequestCallback<List<History>> requestCallback, final int page, final List<History> prefList) {
         AndroidNetworking.get(SHOW_MY_HISTORY+"?page="+page)

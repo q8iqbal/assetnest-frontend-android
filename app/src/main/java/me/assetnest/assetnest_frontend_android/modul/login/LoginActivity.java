@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Objects;
 
 import me.assetnest.assetnest_frontend_android.databinding.ActivityLoginBinding;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.modul.asset.AssetActivity;
 import me.assetnest.assetnest_frontend_android.modul.editProfile.EditProfileActivity;
 import me.assetnest.assetnest_frontend_android.modul.history.HistoryActivity;
 import me.assetnest.assetnest_frontend_android.modul.home.HomeActivity;
+import me.assetnest.assetnest_frontend_android.modul.home.HomeFragment;
 import me.assetnest.assetnest_frontend_android.modul.profile.ProfileActivity;
 import me.assetnest.assetnest_frontend_android.modul.scanasset.ScanAssetActivity;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
@@ -55,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void loginSuccess() {
        this.finish();
-        startActivity(new Intent(this, EditProfileActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
