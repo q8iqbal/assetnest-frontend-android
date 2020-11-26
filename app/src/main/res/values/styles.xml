@@ -20,7 +20,7 @@
         <!--widget style-->
         <item name="textInputStyle">@style/Widget.Assetnest.TextInputLayout.OutlinedBox</item>
         <item name="buttonStyle">@style/Widget.Assetnest.Button</item>
-        <item name="android:inputType">text</item>
+<!--        <item name="android:inputType">text</item>-->
     </style>
 
     <style name="Theme.Assetnest.Splash" parent="Theme.Assetnest">
