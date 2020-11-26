@@ -37,6 +37,7 @@ public class AssetAdapter extends ArrayAdapter<Asset> {
         tvAssetCode.setText("#"+asset.getCode());
         tvAssetName.setText(asset.getName());
         tvAssectStatus.setText(asset.getStatus());
+//        tvAssectStatus.setBackgroundColor(R.color.colorGreen);
         tampilanLog(asset);
         if(asset.getImage()!=null)
             Glide.with(convertView).load(Constant.BASE_URL+asset.getImage()).into(ivAsset);

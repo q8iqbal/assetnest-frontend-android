@@ -65,4 +65,5 @@ public class User {
     public String getDeleted_at() {
         return deleted_at;
     }
+
 }

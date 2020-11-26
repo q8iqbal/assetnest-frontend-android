@@ -12,20 +12,25 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
+import me.assetnest.assetnest_frontend_android.model.Company;
 import me.assetnest.assetnest_frontend_android.model.User;
 import me.assetnest.assetnest_frontend_android.modul.MainActivity;
+import me.assetnest.assetnest_frontend_android.utils.Constant;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
-public class ProfileFragment extends BaseFragment<MainActivity, ProfileContract.Presenter> implements ProfileContract.View {
+public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContract.Presenter> implements ProfileContract.View {
 
     TextView tvName;
     TextView tvCompany;
     TextView tvEmail;
+    CircleImageView ivProfile;
     Button btnSignOut;
-    User user;
-
     public ProfileFragment() {
     }
 
@@ -38,6 +43,7 @@ public class ProfileFragment extends BaseFragment<MainActivity, ProfileContract.
         mPresenter.start();
         initView();
         mPresenter.getUser();
+        mPresenter.getCompany();
 
         setTitle("Profile");
         return fragmentView;
@@ -48,6 +54,7 @@ public class ProfileFragment extends BaseFragment<MainActivity, ProfileContract.
         tvCompany = fragmentView.findViewById(R.id.tv_company_name_value);
         tvEmail = fragmentView.findViewById(R.id.tv_email_value);
         btnSignOut = fragmentView.findViewById(R.id.sign_out);
+        ivProfile = fragmentView.findViewById(R.id.iv_profile);
     }
 
 
@@ -59,7 +66,13 @@ public class ProfileFragment extends BaseFragment<MainActivity, ProfileContract.
     @Override
     public void showProfile(User user) {
         tvName.setText(user.getName());
-        tvCompany.setText("company dg id : "+user.getCompany_id());
         tvEmail.setText(user.getEmail());
+        if(!user.getImage().isEmpty())
+            Glide.with(fragmentView).load(Constant.BASE_URL+user.getImage()).into(ivProfile);
+    }
+
+    @Override
+    public void showCompany(Company company) {
+        tvCompany.setText("company dg id : "+company.getName());
     }
 }

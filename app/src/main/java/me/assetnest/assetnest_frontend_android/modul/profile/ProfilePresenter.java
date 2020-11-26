@@ -3,6 +3,7 @@ package me.assetnest.assetnest_frontend_android.modul.profile;
 import com.google.gson.Gson;
 
 import me.assetnest.assetnest_frontend_android.model.Asset;
+import me.assetnest.assetnest_frontend_android.model.Company;
 import me.assetnest.assetnest_frontend_android.model.User;
 
 public class ProfilePresenter implements ProfileContract.Presenter{
@@ -17,18 +18,18 @@ public class ProfilePresenter implements ProfileContract.Presenter{
     @Override
     public void start() {}
 
-    public User parseUser(){
-        String userJSON = interactor.getUser();
-        Gson g = new Gson();
-        User user = g.fromJson(userJSON, User.class);
-        return user;
-    }
-
     @Override
     public void getUser() {
         String userJSON = interactor.getUser();
         Gson g = new Gson();
         User user = g.fromJson(userJSON, User.class);
         view.showProfile(user);
+    }
+
+    public void getCompany(){
+        String companyJSON = interactor.getCompany();
+        Gson g = new Gson();
+        Company company = g.fromJson(companyJSON, Company.class);
+        view.showCompany(company);
     }
 }

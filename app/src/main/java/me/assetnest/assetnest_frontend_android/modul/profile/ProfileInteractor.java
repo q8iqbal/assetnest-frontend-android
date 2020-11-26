@@ -13,4 +13,9 @@ public class ProfileInteractor implements ProfileContract.Interactor{
     public String getUser() {
         return sharedPreferenceUtil.getUser();
     }
+
+    @Override
+    public String getCompany() {
+        return sharedPreferenceUtil.getCompany();
+    }
 }

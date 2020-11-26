@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.assetnest.assetnest_frontend_android.databinding.ActivitySplashBinding;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.modul.login.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
         },splashTime);

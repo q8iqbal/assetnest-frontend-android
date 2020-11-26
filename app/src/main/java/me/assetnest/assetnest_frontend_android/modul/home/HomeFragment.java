@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,17 +14,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.Priority;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,9 +22,6 @@ import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.model.Asset;
 import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.modul.asset.AssetActivity;
-import me.assetnest.assetnest_frontend_android.modul.history.HistoryActivity;
-import me.assetnest.assetnest_frontend_android.modul.profile.ProfileActivity;
-import me.assetnest.assetnest_frontend_android.modul.scanasset.ScanAssetActivity;
 import me.assetnest.assetnest_frontend_android.utils.AssetAdapter;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 

@@ -30,9 +30,7 @@ import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 
 public class AssetFragment extends BaseFragment<AssetActivity, AssetContract.Presenter> implements AssetContract.View {
-    Asset asset;
     String TAG = "TES_API";
-    String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkuYXNzZXRuZXN0Lm1lXC9sb2dpblwvbW9iaWxlIiwiaWF0IjoxNjA2MDc2MTkxLCJuYmYiOjE2MDYwNzYxOTEsImp0aSI6ImU1aTFUdjRudVFQREhCU1EiLCJzdWIiOjYsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.4FFzXe-0xn8gSoYNNJrCtmE_Z1n1CGwRblkOtsypQQY";
     TextView tvAssetName;
     TextView tvAssetID;
     TextView tvAssetStatus;
