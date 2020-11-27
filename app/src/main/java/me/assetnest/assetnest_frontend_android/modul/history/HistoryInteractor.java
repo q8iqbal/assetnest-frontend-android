@@ -40,7 +40,7 @@ public class HistoryInteractor implements HistoryContract.Interactor {
     }
     @Override
     public void requestPagedHistories(final RequestCallback<List<History>> requestCallback, final int page, final List<History> prefList) {
-        AndroidNetworking.get(SHOW_MY_HISTORY+"?page="+page)
+        AndroidNetworking.get(SHOW_MY_HISTORY+"?page="+page+"&sort=-date")
                 .addHeaders("Authorization", token)
                 .build()
                 .getAsObject(PaginatedHistoriesResponse.class, new ParsedRequestListener<PaginatedHistoriesResponse>() {

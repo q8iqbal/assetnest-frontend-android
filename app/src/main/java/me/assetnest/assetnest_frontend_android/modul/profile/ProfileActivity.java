@@ -35,8 +35,8 @@ public class ProfileActivity extends BaseFragmentHolderActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
                 finish();
+                startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
             }
         });
         navBar.setVisibility(View.GONE);
