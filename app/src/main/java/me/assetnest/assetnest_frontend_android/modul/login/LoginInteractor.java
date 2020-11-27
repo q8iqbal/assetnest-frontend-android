@@ -36,7 +36,7 @@ public class LoginInteractor implements LoginContract.Interactor {
                 .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {
                     @Override
                     public void onResponse(LoginResponse response) {
-                        Log.d("TESAPI", response.token);
+//                        Log.d("TESAPI", response.token);
                         if(response == null){
                             requestCallback.requestFailed("null response");
                         }else if(!(response.token.isEmpty())){

@@ -21,6 +21,7 @@ import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.model.Company;
 import me.assetnest.assetnest_frontend_android.model.User;
 import me.assetnest.assetnest_frontend_android.modul.MainActivity;
+import me.assetnest.assetnest_frontend_android.modul.login.LoginActivity;
 import me.assetnest.assetnest_frontend_android.utils.Constant;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
@@ -54,6 +55,12 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
         tvCompany = fragmentView.findViewById(R.id.tv_company_name_value);
         tvEmail = fragmentView.findViewById(R.id.tv_email_value);
         btnSignOut = fragmentView.findViewById(R.id.sign_out);
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPresenter.signOut();
+            }
+        });
         ivProfile = fragmentView.findViewById(R.id.iv_profile);
     }
 
@@ -74,5 +81,11 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
     @Override
     public void showCompany(Company company) {
         tvCompany.setText(company.getName());
+    }
+
+    @Override
+    public void signOut() {
+        startActivity(new Intent(getActivity(), LoginActivity.class));
+        getActivity().finish();
     }
 }
