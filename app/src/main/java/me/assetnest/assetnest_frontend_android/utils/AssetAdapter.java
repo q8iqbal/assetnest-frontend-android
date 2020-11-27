@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -37,7 +39,17 @@ public class AssetAdapter extends ArrayAdapter<Asset> {
         tvAssetCode.setText("#"+asset.getCode());
         tvAssetName.setText(asset.getName());
         tvAssectStatus.setText(asset.getStatus());
-//        tvAssectStatus.setBackgroundColor(R.color.colorGreen);
+        if(asset.getStatus().equals("Idle"))
+            tvAssectStatus.setBackgroundResource(R.drawable.rc_status_idle);
+        else if(asset.getStatus().equals("Used"))
+            tvAssectStatus.setBackgroundResource(R.drawable.rc_status_used);
+        else if(asset.getStatus().equals("Maintenance"))
+            tvAssectStatus.setBackgroundResource(R.drawable.rc_status_maintenance);
+        else if(asset.getStatus().equals("Lost"))
+            tvAssectStatus.setBackgroundResource(R.drawable.rc_status_lost);
+        else if(asset.getStatus().equals("Broken"))
+            tvAssectStatus.setBackgroundResource(R.drawable.rc_status_broken);
+
         tampilanLog(asset);
         if(asset.getImage()!=null)
             Glide.with(convertView).load(Constant.BASE_URL+asset.getImage()).into(ivAsset);

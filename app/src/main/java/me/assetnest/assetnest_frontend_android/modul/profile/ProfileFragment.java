@@ -73,6 +73,6 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
 
     @Override
     public void showCompany(Company company) {
-        tvCompany.setText("company dg id : "+company.getName());
+        tvCompany.setText(company.getName());
     }
 }

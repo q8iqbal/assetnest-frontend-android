@@ -26,12 +26,20 @@ public class HistoryAdapter extends ArrayAdapter<History> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.history, parent, false);
         }
         // Lookup view for data population
-        TextView tvHistoryCode = (TextView) convertView.findViewById(R.id.tv_history_code);
         TextView tvHistoryName = (TextView) convertView.findViewById(R.id.tv_history_name);
         TextView tvHistoryStatus = (TextView) convertView.findViewById(R.id.tv_asset_status);
         TextView tvHistoryDate = (TextView) convertView.findViewById(R.id.tv_history_date);
         // Populate the data into the template view using the data object
-        tvHistoryCode.setText("#"+history.getId());
+        if(history.getStatus().equals("Idle"))
+            tvHistoryStatus.setBackgroundResource(R.drawable.rc_status_idle);
+        else if(history.getStatus().equals("Used"))
+            tvHistoryStatus.setBackgroundResource(R.drawable.rc_status_used);
+        else if(history.getStatus().equals("Maintenance"))
+            tvHistoryStatus.setBackgroundResource(R.drawable.rc_status_maintenance);
+        else if(history.getStatus().equals("Lost"))
+            tvHistoryStatus.setBackgroundResource(R.drawable.rc_status_lost);
+        else if(history.getStatus().equals("Broken"))
+            tvHistoryStatus.setBackgroundResource(R.drawable.rc_status_broken);
         tvHistoryName.setText(history.getName());
         tvHistoryStatus.setText(history.getStatus());
         tvHistoryDate.setText(history.getDate());

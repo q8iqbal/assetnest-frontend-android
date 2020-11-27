@@ -37,7 +37,7 @@ public class MainActivity extends BaseFragmentHolderActivity implements BottomNa
         scanAssetFragment = new ScanAssetFragment();
         historyFragment = new HistoryFragment();
         profileFragment = new ProfileFragment();
-//        setCurrentFragment(homeFragment, true);
+        setCurrentFragment(homeFragment, true);
     }
 
 
@@ -45,16 +45,15 @@ public class MainActivity extends BaseFragmentHolderActivity implements BottomNa
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.mn_home) {
             Toast.makeText(getApplicationContext(), "Buka Home", Toast.LENGTH_SHORT).show();
-//            setCurrentFragment(homeFragment, true);
+            setCurrentFragment(homeFragment, true);
         } else if (item.getItemId() == R.id.mn_scan) {
             Toast.makeText(getApplicationContext(), "Buka Scan", Toast.LENGTH_SHORT).show();
-//            setCurrentFragment(scanAssetFragment, true);
+            setCurrentFragment(scanAssetFragment, true);
         } else if (item.getItemId() == R.id.mn_history) {
             Toast.makeText(getApplicationContext(), "Buka HIstory", Toast.LENGTH_SHORT).show();
-//            setCurrentFragment(historyFragment, true);
+            setCurrentFragment(historyFragment, true);
         } else if (item.getItemId() == R.id.mn_profile) {
             Toast.makeText(getApplicationContext(), "Buka Profile", Toast.LENGTH_SHORT).show();
-//            setCurrentFragment(profileFragment, true);
             startActivity(new Intent(this, ProfileActivity.class));
         }
         return true;

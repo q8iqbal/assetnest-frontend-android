@@ -19,6 +19,12 @@ public class AssetActivity extends BaseFragmentHolderActivity {
         navBar = findViewById(R.id.bottomNavbar);
         btnBack = findViewById(R.id.btn_back);
         btnBack.setVisibility(View.VISIBLE);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         navBar.setVisibility(View.GONE);
         assetFragment = new AssetFragment();
         setCurrentFragment(assetFragment, false);
