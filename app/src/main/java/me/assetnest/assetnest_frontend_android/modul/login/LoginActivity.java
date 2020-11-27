@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-import me.assetnest.assetnest_frontend_android.MainActivity;
 import me.assetnest.assetnest_frontend_android.databinding.ActivityLoginBinding;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View, View.OnClickListener {

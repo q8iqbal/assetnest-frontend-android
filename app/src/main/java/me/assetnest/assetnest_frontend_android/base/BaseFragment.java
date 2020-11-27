@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 import me.assetnest.assetnest_frontend_android.R;
 
 
-public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment {
+public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment{
 
     protected String title;
     protected T activity;
@@ -21,7 +21,7 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
     protected U mPresenter;
     protected FragmentListener fragmentListener;
 
-    protected void setTitle(String title){
+    protected void setTitle(String title) {
         this.title = title;
         fragmentListener.setTitle(title);
     }
@@ -30,14 +30,12 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         return title;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         title = getResources().getString(R.string.app_name);
         setTitle(title);
-
         return view;
     }
 

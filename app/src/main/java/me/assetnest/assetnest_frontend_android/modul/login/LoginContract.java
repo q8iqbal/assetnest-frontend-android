@@ -19,6 +19,7 @@ public interface LoginContract {
 
     interface Interactor {
         void requestLogin(String email, String password, RequestCallback<LoginResponse> responseCallback);
+        void requestCompany();
         void saveToken(String token);
         String getToken();
         void saveUser(String user);

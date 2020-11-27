@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import me.assetnest.assetnest_frontend_android.databinding.ActivitySplashBinding;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.modul.login.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {

@@ -2,15 +2,17 @@ package me.assetnest.assetnest_frontend_android.modul.login;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.google.gson.Gson;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import me.assetnest.assetnest_frontend_android.api_response.GetCompanyResponse;
 import me.assetnest.assetnest_frontend_android.api_response.LoginResponse;
 import me.assetnest.assetnest_frontend_android.callback.RequestCallback;
 import me.assetnest.assetnest_frontend_android.utils.Constant;
@@ -34,10 +36,12 @@ public class LoginInteractor implements LoginContract.Interactor {
                 .getAsObject(LoginResponse.class, new ParsedRequestListener<LoginResponse>() {
                     @Override
                     public void onResponse(LoginResponse response) {
+//                        Log.d("TESAPI", response.token);
                         if(response == null){
                             requestCallback.requestFailed("null response");
                         }else if(!(response.token.isEmpty())){
                             requestCallback.requestSuccess(response);
+                            requestCompany();
                         }else {
                             requestCallback.requestFailed("Invalid Credential");
                         }
@@ -45,7 +49,28 @@ public class LoginInteractor implements LoginContract.Interactor {
 
                     @Override
                     public void onError(ANError anError) {
+                        if(anError.getErrorCode() == 406){
+                            requestCallback.requestFailed("Invalid Credential");
+                        }
                         requestCallback.requestFailed("Server Offline");
+                    }
+                });
+    }
+
+    @Override
+    public void requestCompany() {
+        AndroidNetworking.get(Constant.BASE_URL+"companies")
+                .addHeaders("Authorization", getToken())
+                .build()
+                .getAsObject(GetCompanyResponse.class, new ParsedRequestListener<GetCompanyResponse>() {
+                    @Override
+                    public void onResponse(GetCompanyResponse response) {
+                        sharedPreferenceUtil.setCompany(new Gson().toJson(response.data));
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.e("opppai", anError.getErrorBody());
                     }
                 });
     }
@@ -63,7 +88,7 @@ public class LoginInteractor implements LoginContract.Interactor {
     @Override
     public void saveUser(String user) { sharedPreferenceUtil.setUser(user); }
 
-    @NotNull
+    @NonNull
     private JSONObject createUserJson(String email, String password){
         JSONObject user = new JSONObject();
         JSONObject userObj = new JSONObject();

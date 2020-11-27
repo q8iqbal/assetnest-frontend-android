@@ -20,6 +20,7 @@
         <!--widget style-->
         <item name="textInputStyle">@style/Widget.Assetnest.TextInputLayout.OutlinedBox</item>
         <item name="buttonStyle">@style/Widget.Assetnest.Button</item>
+<!--        <item name="android:inputType">text</item>-->
     </style>
 
     <style name="Theme.Assetnest.Splash" parent="Theme.Assetnest">
@@ -37,6 +38,14 @@
         <item name="boxCornerRadiusTopEnd">10dp</item>
         <item name="boxCornerRadiusBottomStart">10dp</item>
         <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="android:inputType">text</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextView</item>
+    </style>
+
+
+    <!--text input style-->
+    <style name="Widget.Assetnest.TextInputEdit" parent="Widget.MaterialComponents.TextView">
+        <item name="android:inputType">text</item>
     </style>
 
     <!--button style-->
