@@ -74,7 +74,7 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
     public void showProfile(User user) {
         tvName.setText(user.getName());
         tvEmail.setText(user.getEmail());
-        if(!user.getImage().isEmpty())
+        if(user.getImage()!=null)
             Glide.with(fragmentView).load(Constant.BASE_URL+user.getImage()).into(ivProfile);
     }
 
