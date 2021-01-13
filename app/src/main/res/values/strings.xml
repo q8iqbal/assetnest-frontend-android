@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">assetnest-frontend-android</string>
+    <string name="app_name">AssetNest</string>
 
 <!--    login activity-->
     <string name="email">Email</string>
