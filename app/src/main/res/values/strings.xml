@@ -1,9 +1,19 @@
 <resources>
-    <string name="app_name">assetnest-frontend-android</string>
+    <string name="app_name">AssetNest</string>
 
+<!--    login activity-->
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="email_placeholder">your@email.com</string>
+    <string name="password_placeholder">*******</string>
+    <string name="button_login">Sign In</string>
+
+<!--    edit profile -->
+    <string name="button_save">Save</string>
+    <string name="full_name">Full Name</string>
+    <string name="new_password">New Password</string>
+
+
 
     <string name="asset_id_text">Asset ID</string>
     <string name="asset_name_text">Asset Name</string>
@@ -13,8 +23,7 @@
     <string name="action_text">Action</string>
     <string name="button_save_change_text">Save Change</string>
     <string name="app_logo">App Logo</string>
-    <string name="password_placeholder">*******</string>
-    <string name="button_login">Sign In</string>
+
     <string-array name="action_list">
         <item>Used</item>
         <item>Maintenance</item>
@@ -22,5 +31,13 @@
         <item>Lost</item>
         <item>Broken</item>
     </string-array>
+
+    <string name="home">Home</string>
+    <string name="scan">Scan</string>
+    <string name="history">History</string>
+    <string name="user">Profile</string>
+    <string name="login">Sign in</string>
+    <string name="logout">Sign out</string>
+    <string name="save">Save</string>
 
 </resources>

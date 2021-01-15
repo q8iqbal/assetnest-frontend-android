@@ -21,11 +21,12 @@ import me.assetnest.assetnest_frontend_android.R;
 import me.assetnest.assetnest_frontend_android.base.BaseFragment;
 import me.assetnest.assetnest_frontend_android.databinding.FragmentScanAssetBinding;
 import me.assetnest.assetnest_frontend_android.model.Asset;
+import me.assetnest.assetnest_frontend_android.modul.MainActivity;
 import me.assetnest.assetnest_frontend_android.modul.login.LoginActivity;
 import me.assetnest.assetnest_frontend_android.utils.UtilProvider;
 
 public class ScanAssetFragment
-        extends BaseFragment<ScanAssetActivity, ScanAssetContract.Presenter>
+        extends BaseFragment<MainActivity, ScanAssetContract.Presenter>
         implements ScanAssetContract.View {
     FragmentScanAssetBinding binding;
     int currentAssetId;

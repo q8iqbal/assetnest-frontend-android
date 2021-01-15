@@ -21,8 +21,16 @@ public class User {
         this.deleted_at = deleted_at;
     }
 
-    public User(String name, String password) {
+    public User(String name, String email, String image) {
         this.name = name;
+        this.email = email;
+        this.image = image;
+    }
+
+    public User(String name, String email, String image, String password) {
+        this.name = name;
+        this.email = email;
+        this.image = image;
         this.password = password;
     }
 
@@ -57,4 +65,5 @@ public class User {
     public String getDeleted_at() {
         return deleted_at;
     }
+
 }
