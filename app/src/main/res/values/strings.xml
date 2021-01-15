@@ -40,4 +40,47 @@
     <string name="logout">Sign out</string>
     <string name="save">Save</string>
 
+    <string name="login_tv_about_us_text">About Us</string>
+
+    <string name="about_us_tv_title_text">ABOUT US</string>
+
+    <string name="about_us_tv_dev_team_text">Developer Team</string>
+    <string name="about_us_tv_dev_iqbal_text">Iqbal</string>
+    <string name="about_us_tv_dev_chandra_text">Chandra</string>
+    <string name="about_us_tv_dev_risma_text">Risma</string>
+    <string name="about_us_tv_dev_nawa_text">Nawa</string>
+    <string name="about_us_tv_dev_goldy_text">Goldy</string>
+    <string name="about_us_tv_dev_danang_text">Danang</string>
+
+    <string name="about_us_tv_sponsors_text">Sponsored By</string>
+    <string name="about_us_iv_sponsors_content_description">App Sponsors</string>
+
+    <string name="about_us_tv_supports_text">Supported By</string>
+    <string name="about_us_iv_supports_content_description">App Supporters</string>
+
+    <string name="about_us_tv_supervisors_text">Supervisors And Mentors</string>
+    <string name="about_us_tv_supervisors_list_text">
+        Umi Sa\'adah (Dosen Teknik Informatika PENS)&lt;br /&gt;
+        Desy Intan Permatasari (Dosen Teknik Informatika PENS)&lt;br /&gt;
+        Andhik Ampuh Yunanto (Dosen Teknik Informatika PENS)&lt;br /&gt;
+        Maulidan Bagus Afridian Rasyid (Founder Maulidan Games &amp; Rasyid Technologies)&lt;br /&gt;
+        Willy Achmat Fauzi (CEO Sindika)&lt;br /&gt;
+        Verent Flourencia Irene (UX Designer Maulidan Games)&lt;br /&gt;
+        Mayshella Ainun Wakhidah (Mahasiswa Teknik Informatika PENS)&lt;br /&gt;
+        Andika Ahmad Ramadhan (Mahasiswa Teknik Informatika PENS)&lt;br /&gt;
+        Fandi Ahmad (Mahasiswa Teknik Informatika PENS)&lt;br /&gt;
+        Ardian Kristya Pratama (Mobile Developer AlinaMed &amp; Ikkat Inovasi Teknologi)&lt;br /&gt;
+        Angga Pradipta Kurnia Putra
+            (CTO AlinaMed &amp; Mobile Developer Ikkat Inovasi Teknologi)&lt;br /&gt;
+        Muhammad Alif Pradipta ADP (Mobile Developer Sindika)&lt;br /&gt;
+        Rafly Arief Kanza (Owner &amp; Full Stack Developer punggawastudio.com)&lt;br /&gt;
+        Ahmad Jarir At Thobari (Software Engineer Rasyid Technologies)&lt;br /&gt;
+        Ajie Dibyo Respati (Mahasiswa Teknik Informatika PENS)&lt;br /&gt;
+        Achmad Zulkarnain (CEO &amp; Co-Founder TrustMedis)&lt;br /&gt;
+        Arie Affianto (Founder Profilku Mobile &amp; Samsung Developer Warrior)&lt;br /&gt;
+        Tegar Imansyah (Software RnD in System Architect Alterra)&lt;br /&gt;
+    </string>
+
+    <string name="about_us_iv_divider_content_description">Divider</string>
+
 </resources>

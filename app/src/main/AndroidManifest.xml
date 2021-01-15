@@ -27,6 +27,9 @@
             android:name=".modul.login.LoginActivity"
             android:theme="@style/Theme.Assetnest" />
         <activity
+            android:name=".modul.about_us.AboutUsActivity"
+            android:theme="@style/Theme.Assetnest" />
+        <activity
             android:name=".modul.profile.ProfileActivity"
             android:theme="@style/Theme.Assetnest" />
         <activity
