@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp" >
+
+    <TextView
+        android:id="@+id/about_us_tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/about_us_tv_title_text"
+        android:textAlignment="center"
+        android:textColor="@color/primaryColor"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/about_us_sv_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_us_tv_title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/about_us_title_dev_team_top_line"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:background="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/about_us_tv_dev_team"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/about_us_tv_dev_team_text"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/about_us_title_dev_team_top_line" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/about_us_iv_dev_iqbal"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/app_dev_iqbal"
+                app:layout_constraintEnd_toStartOf="@+id/about_us_iv_dev_chandra"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_tv_dev_team" />
+
+            <TextView
+                android:id="@+id/about_us_tv_dev_iqbal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_tv_dev_iqbal_text"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@id/about_us_iv_dev_iqbal"
+                app:layout_constraintStart_toStartOf="@id/about_us_iv_dev_iqbal"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_dev_iqbal" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/about_us_iv_dev_chandra"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:src="@drawable/app_dev_chandra"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/about_us_iv_dev_iqbal"
+                app:layout_constraintTop_toTopOf="@id/about_us_iv_dev_iqbal" />
+
+            <TextView
+                android:id="@+id/about_us_tv_dev_chandra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_tv_dev_chandra_text"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@id/about_us_iv_dev_chandra"
+                app:layout_constraintStart_toStartOf="@id/about_us_iv_dev_chandra"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_dev_chandra" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/about_us_iv_dev_risma"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/app_dev_risma"
+                app:layout_constraintEnd_toStartOf="@+id/about_us_iv_dev_nawa"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_tv_dev_iqbal" />
+
+            <TextView
+                android:id="@+id/about_us_tv_dev_risma"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_tv_dev_risma_text"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@id/about_us_iv_dev_risma"
+                app:layout_constraintStart_toStartOf="@id/about_us_iv_dev_risma"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_dev_risma" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/about_us_iv_dev_nawa"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:src="@drawable/app_dev_nawa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/about_us_iv_dev_risma"
+                app:layout_constraintTop_toTopOf="@id/about_us_iv_dev_risma" />
+
+            <TextView
+                android:id="@+id/about_us_tv_dev_nawa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_tv_dev_nawa_text"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@id/about_us_iv_dev_nawa"
+                app:layout_constraintStart_toStartOf="@id/about_us_iv_dev_nawa"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_dev_nawa" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/about_us_iv_dev_goldy"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/app_dev_goldy"
+                app:layout_constraintEnd_toStartOf="@+id/about_us_iv_dev_danang"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_tv_dev_risma" />
+
+            <TextView
+                android:id="@+id/about_us_tv_dev_goldy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_tv_dev_goldy_text"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@id/about_us_iv_dev_goldy"
+                app:layout_constraintStart_toStartOf="@id/about_us_iv_dev_goldy"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_dev_goldy" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/about_us_iv_dev_danang"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:src="@drawable/app_dev_danang"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/about_us_iv_dev_goldy"
+                app:layout_constraintTop_toTopOf="@id/about_us_iv_dev_goldy" />
+
+            <TextView
+                android:id="@+id/about_us_tv_dev_danang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_tv_dev_danang_text"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@id/about_us_iv_dev_danang"
+                app:layout_constraintStart_toStartOf="@id/about_us_iv_dev_danang"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_dev_danang" />
+
+            <View
+                android:id="@+id/about_us_dev_team_sponsors_divider"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="32dp"
+                android:background="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_tv_dev_goldy" />
+
+            <TextView
+                android:id="@+id/about_us_tv_sponsors"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/about_us_tv_sponsors_text"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_dev_team_sponsors_divider" />
+
+            <ImageView
+                android:id="@+id/about_us_iv_sponsors"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/about_us_iv_sponsors_content_description"
+                android:scaleType="fitXY"
+                android:src="@drawable/app_sponsor"
+                app:layout_constraintDimensionRatio="H,3:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_tv_sponsors" />
+
+            <View
+                android:id="@+id/about_us_sponsors_supports_divider"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="32dp"
+                android:background="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_sponsors" />
+
+            <TextView
+                android:id="@+id/about_us_tv_supports"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:singleLine="false"
+                android:text="@string/about_us_tv_supports_text"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_sponsors_supports_divider" />
+
+            <ImageView
+                android:id="@+id/about_us_iv_supports"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/about_us_iv_supports_content_description"
+                android:scaleType="fitXY"
+                android:src="@drawable/app_support"
+                app:layout_constraintDimensionRatio="H,3:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_tv_supports" />
+
+            <View
+                android:id="@+id/about_us_supports_supervisors_divider"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="32dp"
+                android:background="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_iv_supports" />
+
+            <TextView
+                android:id="@+id/about_us_tv_supervisors"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/about_us_tv_supervisors_text"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_supports_supervisors_divider" />
+
+            <TextView
+                android:id="@+id/about_us_tv_supervisors_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/about_us_tv_supervisors_list_text"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_us_tv_supervisors" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
