@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     private void initView(){
         binding.btLogin.setOnClickListener(this);
-        binding.loginTvAboutUs.setOnClickListener(this);
     }
 
     @Override
@@ -62,11 +61,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == binding.btLogin.getId()){
             onButtonLoginClick();
-        } else if (v.getId() == binding.loginTvAboutUs.getId()) {
-            onTextViewAboutUsClick();
-        }
     }
 
     private void onButtonLoginClick(){
